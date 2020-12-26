@@ -1,0 +1,77 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Adventitious angles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here is a problem that looks like it will be easy, and then turns out, famously, to be hard.  Let's take a look.
+\begin{center} \includegraphics [scale=0.4] {Langley_1.png} \end{center}
+
+Using theorems about supplementary and vertical angles, and triangle sums, we can fill in some of the values:
+\begin{center} \includegraphics [scale=0.4] {Langley_2.png} \end{center}
+
+However, we're not any closer to $x$.  One idea is to use algebra:
+\begin{center} \includegraphics [scale=0.4] {Langley_3.png} \end{center}
+
+So now we can use the triangle sum of angles theorem to write some equations:
+\[ a + x = 140 \]
+\[ a + b = 160 \]
+\[ b + c = 130 \]
+\[ c + x = 110 \]
+
+Four equations in four unknowns.  That could work.  However, subtract the first from the last and the second from the third to obtain:
+\[ a - c = 30 \]
+\[ a - c = 30 \]
+
+In linear algebra, we call that degenerate.  The system is not independent and we cannot solve it.
+
+However, we notice some isosceles triangles.  I found three:
+
+\begin{center} \includegraphics [scale=0.4] {Langley_4.png} \end{center}
+
+This will bring us to the "bright idea."
+\begin{center} \includegraphics [scale=0.4] {Langley_5.png} \end{center}
+
+We pick another point on one of the sides and draw the two line segments so that the angle labeled at the top is $40^\circ$. 
+\begin{center} \includegraphics [scale=0.4] {Langley_6.png} \end{center}
+
+So then we can do some geometry.  First of all, the total angle at vertex $A$ is 80.  Therefore, the angle $DAE$ is 20.  Since the angle at vertex $D$ is 80, $\triangle ADE$ is isosceles and $AD = AE$.
+
+We already knew that $\triangle ABD$ is isosceles, so $AD = AB$.  Thus, $AE = AB$.  So now $\triangle ABE$ is isosceles, and since angle $BAE$ is 60, the triangle is also equilateral.  So $BE = AE = AB$.
+
+By equal base angles $\triangle ACE$ is isosceles, so $AE = EC$.
+
+By adding up angles, we can find that angle $BEC$ equals 40.  Since $\triangle BEC$ is isosceles, $x + 40 = (1/2) 140 = 70$ and then $x = 30$.
+
+There is a lot more.
+
+\url{https://en.wikipedia.org/wiki/Langley’s_Adventitious_Angles}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

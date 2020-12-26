@@ -1,0 +1,385 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Parabola}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\subsection*{direction of opening}
+
+We continue looking at parabolas, the graphs of equations like $y = ax^2$, this time emphasizing the point of view of analytical geometry.
+
+Any simple parabola (with no terms that mix $x$ and $y$), has its axis of symmetry parallel to either the $x$- or $y$-axis.
+
+Below we have $y = ax^2$ with either $a > 0$ (left panel) or $a < 0$ (right panel)
+\begin{center} \includegraphics [scale=0.30] {para9.png} \end{center}
+
+And then we have $x = ay^2$ with either $a > 0$ (left panel) or $a < 0$ (right panel)
+\begin{center} \includegraphics [scale=0.30] {para10.png} \end{center}
+
+In any case, we can just switch$-a$ and $a$, or $x$ and $y$ as needed, to obtain a figure like the first one, left panel.  We focus on  parabolas pointing up, with no loss of generality.  
+
+Those containing terms like $Bxy$, we leave aside as a complication to be returned to later.
+
+\subsection*{vertex at different points}
+
+Start with a parabola having its vertex at the origin.  The equation will be simply $y = ax^2$.  
+
+$a$ is called the \emph{shape factor}.  It governs how steeply the curve rises (and as we said, by its sign it determines in which direction it opens).
+
+We can see that the vertex is at $(0,0)$, because (i) $(0,0)$ is on the curve and (ii) $y \ge 0$, so $0$ is the smallest $y$.
+
+It turns out that any parabola with its vertex at a point other than the origin, can be described by the formula
+\[ y - k = a(x - h)^2 \]
+
+Moving the graph amounts to changing the values of $x$ and $y$ for every point on the curve.
+
+For example, to move the vertex up by two units to $(0,2)$, add $2$ to the value of $ax^2$ for every $x$.  The result is
+\[ y = ax^2 + k \]
+
+where $k$ is the amount of vertical shift.  This can be rearranged to 
+\[ (y - k) = ax^2 \]
+
+The vertex is at $y = 2$ (positive), but the formula says to subtract $k$ from $y$, which is a bit counter-intuitive.
+
+Changes in $x$ are taken into account \emph{before} squaring.  For a parabola whose vertex is on the $x$-axis, the formula becomes
+\[ y = a(x-h)^2 \]
+
+If you try this for a vertex at $(1,0)$, and plot the values, you will see that this is correct.  For example, $x$ values symmetric on each side of the vertex yield the same $y$, in the proportion $a(\Delta x)^2$, where $\Delta x = x - h$.
+
+So the general formula for a parabola with its vertex at the point $(h,k)$ is
+\[ y - k = a(x - h)^2 \]
+
+If we work with this a bit, multiplying out:
+\[ y - k = a(x^2 - 2xh + h^2) \]
+\[ y = ax^2 - 2ah x + ah^2 + k \]
+
+In this form the cofactors are usually simplified as
+\[ y = ax^2 + bx + c \]
+which we are used to seeing from algebra.
+
+Comparing the two, we see that the cofactors of the $x$ term must be equal:
+\[ -2ahx = bx \]
+\[ h = -\frac{b}{2a} \]
+
+and the constant terms must be equal as well
+\[ c = ah^2 + k \] 
+\[ k = c - ah^2 \]
+\[ = c - \frac{b^2}{4a} \]
+
+We can check this as follows.  The first equation is commonly used to find the vertex for a given parabola.  The $x$-value of the vertex is $h = -b/2a$.
+
+Then the $y$-coordinate ($k$) can obtained by plugging into the given equation:
+\[ k = a(-\frac{b}{2a})^2 + b(-\frac{b}{2a}) + c \]
+\[ k - c = \frac{b^2}{4a} - \frac{b^2}{2a} \]
+\[ = - \frac{b^2}{4a}  \]
+which matches what we had above.
+
+\subsection*{roots}
+
+Probably the most common thing we're asked to do with a quadratic equation like this is to find the roots.  These are the values of $x$ for which $y=0$ is a solution.  They are the points where the graph of the curve crosses the $x$-axis.
+
+By trying different possibilities it becomes clear that it is possible to have 0, 1 or 2 roots.  
+
+In the figure below, the black curve has two roots, the red curve has one.  The latter's equation is $y = x^2$, the former is $y = x^2 - 1$ and then we can see that $x^2 = 1$ has two real solutions $x = \pm 1$.
+
+\begin{center} \includegraphics [scale=0.50] {para8.png} \end{center}
+
+On the left, the magenta curve does not cross the $y$-axis.  Its equation is $y = x^2 + 1$, and there are no (real) solutions, no values of $x$ that solve the equation when $y = 0$.
+\[ 0 = x^2 + 1 \]
+\[ x^2 = - 1 \]
+
+To find the roots of
+\[ ax^2 + bx + c = 0 \]
+We can guess solutions by trying to factor into a form like:
+\[ (x - s)(x - t) = 0 \]
+
+The case of a single root occurs when $s = t$ so we have $a(x - s)^2 = 0$.  A common example of that is a parabola with its vertex at the origin, so $s = 0$ and $y = ax^2$ (right panel, above).
+
+Roots do not have to be integers (or even rational).  An arguably more productive and certainly more general approach to finding them is the process of \emph{completing the square}.  
+
+\subsection*{completing the square}
+Suppose we have
+\[ y = ax^2 + bx + c \]
+When $y = 0$:
+\[ ax^2 + bx + c = 0 \]
+
+First, multiply through by $1/a$ and place the constant term on the right-hand side:
+\[ x^2 + \frac{b}{a} x = - \frac{c}{a} \]
+
+We want to write the left-hand side
+\[ x^2 + \frac{b}{a} x \]
+
+as a perfect square.  Something like
+\[ (x + p)^2 = x^2 + 2xp + p^2 \]
+What should $p$ be?
+
+If we compare the cofactor of the $x$ term, in our problem we have $b/a$ and in the example we have $2p$.  So $2p = b/a,  \ p = b/2a$ and then $(x + p)$ is like $(x + b/2a)$ so finally $(x + p)^2$ is like
+\[ (x + \frac{b}{2a})^2 = x^2 + \frac{b}{a}x + (\frac{b}{2a})^2 \]
+
+The key insight is that on the original left-hand side (three equations back)
+\[ x^2 + \frac{b}{a} x \]
+
+the third term is missing, but \emph{we can fix it}.  To maintain equality, simply add the same thing on both sides:
+\[ x^2 + \frac{b}{a} x + (\frac{b}{2a})^2  = -\frac{c}{a} + (\frac{b}{2a})^2 \]
+
+So now the left-hand side is a perfect square:
+\[ (x + \frac{b}{2a})^2 = -\frac{c}{a} + (\frac{b}{2a})^2 \]
+\[ x + \frac{b}{2a} = \pm \sqrt{-\frac{c}{a} + (\frac{b}{2a})^2} \]
+
+Now, we just do a bit of rearranging.
+
+Multiplying top and bottom of the first term under the square root gives a common factor of $4a^2$:
+\[ x + \frac{b}{2a} = \pm \sqrt{-\frac{4ac}{4a^2} + (\frac{b}{2a})^2} \]
+
+which can come out of the square root and then matches what's in the second term on the left-hand side:
+\[ x + \frac{b}{2a} = \pm \frac{\sqrt{-4ac + b^2}}{2a} \]
+which we rearrange slightly to give the standard \emph{quadratic formula}:
+\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+This formula always works to find the roots of an equation, if they exist.  The quantity under the square root is called the discriminant
+\[ D = b^2 - 4ac \]
+If $D < 0$ then $\sqrt{D}$ does not exist in the real numbers and there is no $x$ such that $y = 0$.  That corresponds to the case where the parabola does not cross the $x$-axis.
+
+If $D = 0$ then there is a single root, and the graph just touches the $x$-axis.
+
+\subsection*{check the answer}
+
+We assert that when $x$ takes on those two values, it is a solution for
+\[ ax^2 + bx = -c \]
+Take the positive root:
+\[ x = \frac{1}{2a} \ [ -b + \sqrt{b^2 - 4ac} \ ] \]
+Compute $ax^2$
+\[ ax^2 = \frac{1}{4a} \ [ b^2 - 2 b \sqrt{b^2 - 4ac} + b^2 - 4ac \ ] \]
+\[ = \frac{1}{4a} \ [ 2b^2 - 2b \sqrt{b^2 - 4ac} - 4ac \ ] \]
+
+and then for $bx$
+\[ bx = \frac{1}{2a} \ [ -b^2 + b \sqrt{b^2 - 4ac} \ ] \]
+multiply by $2$ on top and bottom on the right-hand side:
+\[ bx = \frac{1}{4a} \ [ -2b^2 + 2b \sqrt{b^2 - 4ac} \ ] \]
+
+All the terms of $bx$ cancel terms in $ax^2$.  What's left is $- 4ac$ so then
+\[ \frac{1}{4a} \ (- 4ac) = -c \]
+
+If we had started with the negative root, the square roots in both $ax^2$ and $bx$ would each change sign, but they would still be opposite signs and hence, cancel.
+
+\subsection*{tangent lines}
+
+Consider a parabola and a line on the same graph.  There are four possibilities for the intersection of the line and the parabola.  First and second:  two points (left panel), and no points (right panel).
+
+\begin{center} \includegraphics [scale=0.40] {para31.png} \end{center}
+
+The other two possibilities both have a single point of intersection.  The tangent line at a point (left panel), and a vertical line (right panel).
+
+\begin{center} \includegraphics [scale=0.40] {para32.png} \end{center}
+
+We are particularly interested to know the equations of tangent lines to the parabola, which includes their slopes.  Consider the simplest example:  $y = x^2$.
+
+The point $(1,1)$ is on the curve, because $(x = 1, y = 1)$ satisfies the equation $y = x^2$.
+
+\begin{center} \includegraphics [scale=0.50] {para11.png} \end{center}
+
+Suppose we know that the slope of the tangent to the curve at the point $(1,1)$ is equal to $2$.
+
+The equation of the tangent line is
+\[ y - y' = m(x - x') \]
+Plugging in for $(x', y') = (1,1)$:
+\[ y - 1 = 2(x - 1) \]
+\[ y = 2x - 1 \]
+
+Now suppose that we knew only the parabola and this slope, but we did not know the point where the tangent meets the curve, and so do not know the $y$-intercept.
+
+We have the equation of a line:
+\[ y = 2x + y_0 \]
+
+We seek points which are simultaneously on the line and the curve.  They must satisfy both equations.
+
+Since this is a tangent line, we seek the value for which this expression has only a single solution.  The tangent "touches" the curve at a single point.
+
+Substitute for $y$ from the equation for the curve:
+\[ x^2 = 2x + y_0 \]
+\[ x^2 - 2x - y_0 = 0 \]
+
+Use the quadratic formula to set up an expression for $x$:
+\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+There is a single solution when the part under the square root (the discriminant) is equal to zero.
+
+\[ b^2 - 4ac = 0 \]
+\[ b^2 = 4ac \]
+\[ (-2)^2 = 4(-y_0) \]
+\[ y_0 = -1 \]
+Therefore, the equation of the tangent line is $y = 2x - 1$, which matches what we had before.
+
+$y = 2x + y_0$ is a \emph{family} of lines.  For $y_0 = -1$, there is a single solution for $x$ to be both on the line and the parabola.  For $y_0 < -1$, there are no solutions, while for $y_0 > -1$ there are two solutions, because the line actually traces out a chord or secant of the parabola, passing through the curve at two points.
+
+The general solution is as follows:
+\[ y = ax^2 \]
+\[ y = mx + y_0 \]
+The point(s) of intersection are given by $(x,y)$ satisfying both equations:
+\[ ax^2 = y = mx + y_0 \]
+
+Then
+\[ ax^2 - mx - y_0 = 0 \]
+From the quadratic equation
+\[ x = \frac{m \pm \ \sqrt{m^2 + 4ay_0}}{2a} \]
+
+For the case of the tangent line, there is a single solution, which happens when the discriminant is zero and then
+\[ x = \frac{m}{2a} \]
+\[ m = 2ax \]
+
+As we've been saying.  The slope of the tangent to the parabola at a point $(x, ax^2)$ is equal to $2ax$.
+
+We can find the equation of the line by finding $y_0$, the value of $y$ when $x = 0$.
+\[ m = 2ax = \frac{y - y_0}{x - 0} \]
+\[ 2ax^2 = ax^2 - y_0 \]
+\[ y_0 = -ax^2 \]
+
+Note:  do not make the mistake of writing the equation of the line now as
+\[ y = mx + y_0 = 2ax \cdot x - ax^2 \]
+This is wrong because $m$ and $y_0$ were determined for a particular point on the parabola, but in the equation of the line $y = mx + y_0$, \emph{that} $x$ is any $x$.  Going back to the prime notation we should write:
+\[ y = mx + y_0 = 2ax' \cdot x - ax'^2 \]
+where $x$ is a variable and $x'$ is a constant.
+
+\subsection*{tangent passing through a point}
+Now suppose we have the same parabola and a point not on the parabola, but in the plane and outside of the "cup" of the parabola, such as $(3,5)$.  We seek the equations of tangent lines to the parabola that go through this point.  
+\begin{center} \includegraphics [scale=0.4] {para12.png} \end{center}
+
+There will be two of them.  We show just one in the figure.
+
+The lines passing through this point with different slopes $m$ are given by:
+
+\[ (y - y') = m(x - x') \]
+Here, let $(x',y')$ be $(3,5)$:
+
+\[ y - 5 = m(x - 3) \]
+
+Since values of $(x,y)$ are both on the line and the parabola $y=x^2$, we can plug in for $y$:
+\[ x^2 - 5 = mx - 3m \]
+\[ x^2 - mx + (3m - 5) = 0 \]
+
+As before, solutions are given by the quadratic equation.  These are points $x$ which are both on the line, and on the curve.  
+
+The value of the slope $m$ giving a single solution (zero discriminant) is:
+\[ (-m)^2 - 4(3m - 5) = 0 \]
+\[ m^2 - 12m + 20 = 0 \]
+Another quadratic.  We can factor it by eye:
+\[ (m - 2)(m - 10) = 0 \]
+\[ m = 2, \ \ \ m = 10 \]
+
+We knew the first one already, because the point $(x',y') = (3,5)$ is on the line $y = 2x - 1$.  This is the tangent to the curve at $(1,1)$, which has slope $m = 2$.
+\begin{center} \includegraphics [scale=0.50] {para13.png} \end{center}
+
+The original point $(3,5)$ isn't shown.
+
+As mentioned, there is always another solution which we haven't found explicitly and isn't shown on the graph either.  Any vertical line (with infinite slope) passes through only a single point on the parabola.
+
+We ignore this complication.
+
+\subsection*{general solution}
+We are given the parabola $y = ax^2$, as well as a general point $(x',y')$, which we suppose is not on the parabola.  Any line through the point $(x',y')$ has the equation:
+\[ y - y' = m(x - x') \]
+for all points $(x,y)$ on the line.
+
+If one of those points $(x,y)$ is on the line and \emph{also} on the parabola, it must satisfy $y = ax^2$ as well, so:
+
+\[ ax^2 - y' = m(x - x') \]
+\[ ax^2 - mx + (mx' - y') = 0 \]
+
+The must be only one value of $x$ which works for a particular $m$, there can be \emph{no other solutions}.  (In general, for a point $(x',y')$ \emph{underneath} the parabola there will be two tangent lines).
+
+Write the quadratic equation to solve for $x$:
+\[ x = \frac{m \pm \sqrt{m^2 - 4a(mx' - y')}}{2a} \]
+
+There is a single solution when the discriminant is zero.  Then
+\[ x = \frac{m}{2a} \]
+\[ m = 2ax \]
+
+At the point $(x,y) = (1,1)$, the slope is equal to $2$, if $y = x^2$.
+
+Go back to the equation for the line
+\[ y - y' = m(x - x') \]
+
+and plug in this slope
+\[ y - y' = 2ax(x - x') \]
+
+Then for a given $(x',y')$ we can find the two points $(x,y)$ as
+\[ ax^2 - y' = 2ax^2 - 2axx' \]
+\[ ax^2 - 2ax'x + y' = 0 \]
+
+\[ x = \frac{2ax' \pm \sqrt{(2ax')^2 - 4ay'}}{2a} \]
+\[ = x' \pm \sqrt{x'^2 - y'/a} \]
+
+There is one solution when the discriminant is zero:
+\[ y' = ax'^2 \]
+That's when the given point $(x',y')$ actually was on the curve.
+
+And there are no solutions (in the real numbers) when the discriminant is negative:
+\[ x'^2 - y'/a < 0 \]
+\[ ax'^2 < y' \]
+
+That is, when the point $(x',y')$ lies in the "cup" of the parabola and $y' > ax'^2$.  Then no tangent line runs through $(x',y')$.
+
+\subsection*{Kline 4-23}
+
+The slope of the parabola has some simple interesting properties.
+
+For example, pick two points $(x,y)$ and $(x',y')$ on such that the line joining them goes through the focus.
+\begin{center} \includegraphics [scale=1.0] {Kline_4_23.png} \end{center}
+
+The tangents through these two points form a right angle, as shown in the figure.
+
+\emph{Proof}.
+
+Recall that when the vertical $DP$ is extended downward, the angle that it makes with the tangent, $\phi$, is equal to the angle $DP$ itself makes with the tangent.  
+
+Furthermore, $FP$ makes the same angle with the tangent, by the "headlight property".  The angle of incidence is equal to the angle of reflection.
+
+The situation is this:
+
+\begin{center} \includegraphics [scale=0.25] {Kline_4_23_b.png} \end{center}
+
+Since $DP$ is parallel to $D'P$, by alternate interior angles the angle $D'QF$ has measure $2 \phi$.  Using the headlight property again we have that $\theta = \theta$.  
+
+Since $2 \phi + 2 \theta$ is 180 degrees, $\theta$ and $\phi$ are complementary, so the angle where the tangents meet is a right angle.
+
+$\square$
+
+\subsection*{further comment}
+
+Next, pick any two points $(x,y)$ and $(x',y')$ on our standard parabola.
+
+The slope of the line that connects those two points is equal to the slope of the parabola at the point whose $x$-value is halfway in between.  
+\begin{center} \includegraphics [scale=0.4] {para19.png} \end{center}
+
+For the first part:
+\[ m = \frac{y'-y}{x'-x} \]
+\[ = \frac{ax'^2 - ax^2}{x'-x} \]
+\[ = a \ [ \ \frac{x'^2 - x^2}{x' - x} \ ] \]
+\[ = a(x' + x) \]
+
+For the midpoint
+\[ x_m = \frac{1}{2} (x' + x) \]
+and the slope is
+\[ 2a \cdot \frac{1}{2} (x' + x) \]
+\[ = a(x' + x) \]
+
+A similar result is that if we pick any two points $(x,y)$ and $(x',y')$, and draw their slopes, the point where the two slope lines meet has its $x$-value exactly halfway in between $x$ and $x'$.
+
+\end{document}

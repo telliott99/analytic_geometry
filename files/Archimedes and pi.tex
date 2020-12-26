@@ -1,0 +1,437 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Archimedes and pi}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:Archimedes_and_pi}
+
+We're going to follow a page that presents Archimedes' method for the approximation of $\pi$.
+
+\url{https://itech.fgcu.edu/faculty/clindsey/mhf4404/archimedes/archimedes.html}
+
+To begin with, let's review some ideas related to angle bisection.  Recall that if we have an angle bisector in a right triangle
+
+\begin{center} \includegraphics [scale=0.4] {pi10.png} \end{center}
+
+ the theorem says that 
+
+\[ \frac{a}{d} = \frac{c}{e} \]
+
+The proof (which we showed in the the Geometry book) involves drawing the altitude of the top triangle, forming two congruent triangles and one more that is similar to the original.  
+
+For congruency, we have two (that is, three) angles the same plus a shared side, $b$.  That accounts for the label of $d$ on the dotted line.
+
+\begin{center} \includegraphics [scale=0.4] {pi11.png} \end{center}
+
+The small triangle at the top is similar to the one we started with, by complementary angles in a right triangle.  Let us now re-label the hypotenuse of the original.
+
+\begin{center} \includegraphics [scale=0.4] {pi12.png} \end{center}
+
+By similar triangles, we have (adjacent over hypotenuse):
+
+\[ \frac{a}{c} = \frac{d}{e} \]
+
+This is rearranged to give
+\[ \frac{a}{d} = \frac{c}{e} \]
+
+$\square$
+
+There's more.  Add $1$ to both sides:
+
+\[ \frac{a+c}{c} = \frac{d + e}{e} \]
+\[ \frac{a+c}{d+e} = \frac{c}{e} \]
+
+The denominator on the left-hand side is just $f$, and the right-hand side is equal to $a/d$ so
+
+\[ \frac{a + c}{f} = \frac{a}{d} \]
+\[ \frac{a}{f} + \frac{c}{f} = \frac{a}{d} \]
+
+$\square$
+
+This is the central relationship we will use.  If we simply add the cotangent and cosecant of the original angle, we obtain the cotangent of the half-angle, $a/d$.  
+
+To get the cosecant ($b/d$), use the Pythagorean theorem.
+
+\[ a^2 + d^2 = b^2 \]
+\[ \frac{a^2}{d^2} + 1 = \frac{b^2}{d^2} \]
+
+Square the cotangent, add 1, and take the square root.  That's $b/d$, the cosecant, or $1/$ sine.
+
+Of course, Archimedes does not use the language of trigonometry.  He views these numbers simply as ratios (\emph{logos}).  
+
+\subsection*{overview}
+There are three steps which we will repeat four times.  
+ 
+$\circ$ At each round, we start with the values for the cosecant and cotangent (to start with, $c/f$ and $a/f$).  In keeping with Greek tradition, these are ratios of whole numbers.
+  
+$\circ$ Add them together, obtaining $(c + a)/f$, which is equal to $a/d$.  This gives us the \emph{cotangent} of the half-angle.
+ 
+$\circ$ Use the Pythagorean theorem to obtain the \emph{cosecant} of the half-angle, $b/d$.
+
+In what follows first (part C) we compute the circumference or perimeter of a circumscribed polygon;  after that we'll compute the inscribed perimeter in part I.  
+
+Because the first one is circumscribed, we're finding an \emph{upper} bound for the value of $\pi$.
+ 
+\subsection*{C1}
+Draw a circle with radius $OA$ and tangent $AC$.  ($A$ is hard to see, it lies between $G$ and $H$ near the bottom of the figure).
+
+Let the central $\angle AOC$ be one-third of a right angle.  Thus $\angle AOC$ is $30^{\circ}$.
+
+\begin{center} \includegraphics [scale=0.3] {pi5.png} \end{center}
+
+The figure appears to have been compressed in width.  The angle bisectors don't look right and the original angle looks more like $45$ than $30$.  We'll use it anyway since it comes from the reference.
+
+Recall that if we draw an altitude in an equilateral triangle, the side at the base is bisected, which means that the sides of the two right triangles are in the ratio $1:\sqrt{3}:2$.  The adjacent side for the smaller angle ($30^{\circ}$) is $\sqrt{3}$ and the opposite side is $1$, so the the cotangent (ratio $OA:AC$) is $\sqrt{3}$, the square root of three. 
+
+\begin{center} \includegraphics [scale=0.4] {pi1.png} \end{center}
+
+$265/153$ is a (very good) approximation to $\sqrt{3}$, just slightly smaller than the true value.  We explore how Archimedes may have done this calculation elsewhere.
+
+We shouldn't get ahead of ourselves, but you might wonder how good an approximation for $\pi$ we have to start with.
+
+The central angle is $30^{\circ}$.  The length $AC$ is one-half of a side from a regular hexagon.  So the total perimeter is $12$ times that.  If we invert the cotangent and multiply by $12$, we'll have the ratio of the circumference to the radius.  Since $\pi$ is the ratio to the diameter
+
+\[ \pi = \frac{C}{d} = \frac{C}{2r} \]
+\[ = \frac{1}{2} \cdot \frac{C}{r} \]
+
+we multiply by $6$ rather than $12$.
+
+The preliminary estimate is $6 \cdot 1/\sqrt{3} = 3.4641$.  
+
+At each step we will bisect the central angle.  The number of sides will double, so the tangent will be multiplied by $12, 24, 48$ and finally by $96$.
+
+\subsection*{Archimedes' calculation}
+
+In what follows we list the claim first:
+
+$\circ$   $OA:AC > 265:153$
+
+Followed by the
+
+\emph{Proof}.
+
+This is just Archimedes' estimate for $\sqrt{3}$, slightly less than the true value.  Next
+
+$\circ$   $OC:AC = 306:153$
+
+The cosecant is equal to $2$.  The denominator of the ratio has been chosen to match the previous one.  
+
+Now draw the angle bisector $OD$.
+\begin{center} \includegraphics [scale=0.3] {pi5.png} \end{center}
+
+The new cotangent ($OA:AD$) of the bisected angle is the sum of the original cotangent and cosecant, as discussed above.
+
+$\circ$   $OA : AD > 571 : 153$
+
+We have just added the numerators for the first two ratios above, leaving the result over the common denominator.
+
+$\circ$   $OD : AD > 591-1/8 : 153$
+
+We want the new cosecant.  Square the numerator of the previous result and add the square of $153$, then take the square root.
+
+So 
+
+\begin{verbatim}
+571^2 = 326041
+153^2 = 23409
+326041 + 23409 = 349450
+\end{verbatim}
+
+A modern computation of the square root of $349450$ gives about $591.143$ in decimal.
+
+Archimedes approximates the result as 591\ 1/8.   Place that over $153$ to obtain the ratio shown above.
+
+\subsection*{C2}
+
+Now draw the angle bisector $OE$.
+
+\begin{center} \includegraphics [scale=0.3] {pi5.png} \end{center}
+
+$\circ$ From above, we have that $OA : AD > 571 : 153$ and $OD : AD > 591\ 1/8 : 153$.
+
+$\circ$   $OA : AE > 1162\ 1/8 : 153$
+
+This calculation invokes the angle bisector corollary again.  Rather than repeat the derivation, just add the inputs:
+\[ 591\ 1/8 : 153 + 571 : 153 \]
+which adds to give the result above, $1162\ 1/8 : 153$.
+
+$\circ$   $OE: AE > 1172 \ 1/8 : 153$
+
+Use the Pythagorean theorem to write:
+
+\[ OE^2 = AE^2 + OA^2  \]
+\[ \frac{OE^2}{AE^2} = \frac{OA^2}{AE^2} + 1 \]
+
+\begin{verbatim}
+1162-1/8^2= 1350534-1/2
+153^2 = 23409
+1350534-1/2 + 23409 = 1373943-1/2
+\end{verbatim}
+
+A modern computation of the square root gives $1172.15$.
+
+\subsection*{C3}
+
+Now draw the angle bisector $OF$.
+
+\begin{center} \includegraphics [scale=0.3] {pi5.png} \end{center}
+
+$\circ$ From above, we have that $OA : AE > 1162 \ 1/8 : 153$ and $OE : AE > 1172 \ 1/8 : 153$.
+
+$\circ$   $OA : AF > 2334\ 1/4 : 153$
+
+This calculation invokes the angle bisector corollary again.
+
+\[ \frac{OA}{FA} =  \frac{OE}{EA} + \frac{OA}{EA} \]
+\[ 1162 \ 1/8 : 153 + 1172 \ 1/8 : 153 \]
+which adds to give the result above.
+
+$\circ$  $OF : FA > 2339 \ 1/4 : 153$
+
+Use the Pythagorean theorem to write:
+\[ \frac{OF^2}{FA^2} = \frac{OA^2}{FA^2} + 1 \]
+
+\begin{verbatim}
+2334-1/4^2= 5448723-1/8
+153^2 = 23409
+5448723-1/8 + 23409 = 5472132-1/8
+\end{verbatim}
+
+The square root is $2339 \ 1/4$.
+
+\subsection*{C4}
+
+Now draw the angle bisector $OG$.
+\begin{center} \includegraphics [scale=0.3] {pi5.png} \end{center}
+
+$\circ$ From above, we have that $OA : FA > 2334\ 1/4 : 153$ and $OF : FA > 2339\ 1/4 : 153$
+
+Add
+
+$\circ$   $OA : AG > 4673\ 1/2 : 153$
+
+We're almost done.  We do not need to compute the cosecant at this last step
+
+The original multiplier was $6$.  There is an additional factor for the four "halvings" of $2^4 = 16$.  Hence we obtain
+
+\[ 153 \times 96 = 14688 \]
+and then invert to get the ratio of the circumference to the diameter:
+
+\[ \frac{14688}{4673 \ 1/2} = 3 + \frac{667 \ 1/2}{4673 \ 1/2}  \]
+The fraction is just less than $1/7$.
+
+$1/7 = 0.142857$, while $667 \ 1/2 / 4673 \ 1/2 = 0.142827$.
+
+We conclude that $\pi < 3 \ 1/7$.
+
+\subsection*{Check our progress}
+
+Here are calculations for the upper bound at the beginning and then after each of four steps:
+
+\begin{verbatim}
+>>> 6 * 153/265.0
+3.4641509433962265
+>>> 12 * 153/571.0
+3.2154115586690017
+>>> 24 * 153/1162.125
+3.15972894482091
+>>> 48 * 153/2334.25
+3.1461925672057407
+>>> 96 * 153/4673.5
+3.1428265753717772
+>>>
+>>> 1/7.0
+0.14285714285714285
+\end{verbatim}
+
+\subsection*{Part I}
+
+Here is the diagram for an inscribed polygon.
+\begin{center} \includegraphics [scale=0.4] {pi7.png} \end{center}
+
+As before $\triangle ABC$ is a $30-60-90$ right triangle, but now it lies inside the circle.
+
+$\circ$  $AC : BC < 1351 : 780$.
+
+$AC/BC$ is the cotangent of $30^{\circ}$.
+
+The ratio $1351/780$ is an approximation for $\sqrt{3}$.  It is an even better approximation than the previous one, and also important, it is just slightly \emph{more} than the true value, whereas $265/153$ was slightly less.
+
+Next, we will bisect $\angle CAB$ to give $\angle DAB$ and use the same relationship that we had before:  the sum of the cotangent plus the cosecant of the original angle is equal to the cotangent of the half angle.
+
+On one hand, this is just the bisector theorem (which gives the result for $\angle CAd$), we need to show that the cotangent of $\angle CAd$ is equal to the cotangent of $\angle dAB$ ($ = \angle DAB$).  But we bisected the original angle, so of course they are equal as given.
+
+Nevertheless, Archimedes can't do it that way.
+
+We need, essentially, a different proof of the bisector theorem that applies to $\triangle ABD$.
+
+\begin{center} \includegraphics [scale=0.4] {pi7.png} \end{center}
+
+\subsection*{I1}
+
+Let $AD$ bisect the angle, and then join $BD$.
+
+$\circ$  $\angle BAD = \angle DAC = \angle DBd$.
+
+The first statement just restates the construction as an angle bisector.  The second follows from the fact that $\angle BDd$ is a right angle, which establishes $\triangle BDd \sim \triangle AdC$.  
+
+$\circ$  $AD : DB < 2911 : 780$
+
+According to our souce, using the similar triangles above, write three ratios:
+\begin{center} \includegraphics [scale=0.6] {pi8.png} \end{center}
+
+\[ AD : BD = BD : Dd = AB : Bd \]
+
+This seems to be an error.  The first two are cotangents, while the third is the ratio of a hypotenuse to the short side in a triangle that is not a right triangle!
+
+However, conclusion
+\[ (AB + AC):BC = AD:DB \]
+is easily proved as follows:
+
+\begin{center} \includegraphics [scale=0.4] {pi7.png} \end{center}
+
+\emph{Proof}.
+
+We have that $\triangle ABC$ is a right triangle and that $AD$ and thus $Ad$ is the angle bisector for $\angle BAC$.  Therefore, we have by our favorite theorem that
+\[ (AB + AC):BC =  AC:Cd \]
+
+The sum of the cotangent and the cosecant for $2 \theta$ is equal to the cotangent of $\theta$.  This is the same relationship we used in the first section, with the addition of the similarity between triangles.  
+
+We also have that $\triangle ABD$ is a right triangle and by virtue of the angle bisector construction, $\triangle ABD$ is similar to $\triangle ACd$.  Therefore:
+
+\[ AC:Cd = AD:DB \]
+
+These two lines combine to give the desired result.
+
+$\square$
+
+Note:  we did not use the fact from the source that the small triangle $\triangle BDd$ is similar to $\triangle ACd$ (vertical angles plus the two right angles).  (To do:  go back to Aristotle or come up with a new proof using the same givens as the bisector theorem plus this additional point, to show the result directly).
+
+In any event, what we  will do at each stage is exactly the same as before:  (i) add the cotangent and cosecant of $2 \theta$ to obtain the cotangent of $\theta$, (ii) then use the Pythagorean theorem to get the cosecant of $\theta$.
+
+We have that the initial cotangent $AC : BC < 1351 : 780$, and $AB:BC$ is the cosecant, whose value is $2$ so we multiply $780 \times 2 = 1560$, and then add that to $1351$ to get the numerator of the result listed above.  This is is the cotangent of the half-angle.
+
+$\circ$  $AB : BD < 3013 \ 3/4 : 780$
+
+From the Pythagorean theorem:  $AD^2 + BD^2 = AB^2$ so
+\[ AB^2:BD^2 = AD^2:BD^2 + 1 \]
+
+$AD : DB < 2911 : 780$  So we obtain 
+
+\begin{verbatim}
+AD^2 = 2911^2 = 8473921
+DB^2 = 780^2 = 608400
+AD^2 + BD^2 = 9082321
+AB = 3013-3/4
+\end{verbatim}
+
+\[ AB:BD <  3013 \ 3/4: 780 \]
+
+\subsection*{I2}
+
+Rather than go through the geometry again, let's just use the trigonometry.  First the cotangent:  we have $2911:780 + 3013 \ 3/4:780 = 5924 \ 3/4:780$.  
+
+At this point, we reduce the denominator to $240$.  This amounts to dividing by $3 \ 1/4$.  $5924 \ 3/4$ divided by $3 \ 1/4$ is exactly equal to $1823$.
+
+$\circ$ $AE:EB = 1823:240$, the cotangent.
+
+For the second part 
+
+\begin{verbatim}
+1823^2 = 3323329
+240^2 = 57600
+AE^2 + BE^2 = 3380929
+AE/EB = 3013-3/4
+\end{verbatim}
+
+The square root is $< 1838 \ 3/4$, but the source gives the fraction as a bit larger $1838 \ 9/11$.
+
+$\circ$ $AB:BE = 1838 \ 9/11: 240$, the cosecant.
+
+\subsection*{I3}
+
+Now, let $AF$ bisect the angle.
+
+For the first part we have $1838 \ 9/11: 240 + AE:EB = 1823:240 = 3661 \ 9/11:240$. 
+
+ We reduce the denominator, this time to $66$.  This amounts to multiplication by $11/40$.  So the numerator is multiplied by the same factor giving
+
+$\circ$ $AF:FB = 1007:66$, the cotangent.
+
+\begin{verbatim}
+1007^2 = 1014049
+66^2 = 4356
+AF^2 + BF^2 = 1018405
+AB/FB = 1009-1/6
+\end{verbatim}
+
+$\circ$ $AB:FB = 1009 \ 1/6:66$, the cosecant.
+
+\subsection*{I4}
+
+Finally, let $AG$ bisect the angle, and then join $BG$.  First the cotangent
+
+\[ (AB + AF):BF = AG:GB \]
+
+$\circ$ $AG:GB = 2016 \ 1/6:66$
+
+\begin{verbatim}
+2016^2 = 4064256
+66^2 = 4356
+AG^2 + BG^2 = 4068612
+AB/GB = 2017-1/12
+\end{verbatim}
+
+The source gives
+
+$\circ$ $AB:GB < 2017 \ 1/4:66$.  This is the cosecant.
+
+We're almost done.  The side $BG$ is a side of an inscribed regular polygon of $96$ sides.  We multiply $66 \times 96 = 6336$ and compute the inverse ratio to $2017\ 1/4$.
+
+I am not sure how Archimedes came up with it, but it is easy to verify that the ratio which is less than $\pi$ is greater than:
+
+\[ \frac{6336}{2017 \ 1/4} > 3 \ 10/71 \]
+
+We combine parts A and B in the famous final statement that
+\[ 3 \ 10/71 < \pi < 3 \ 1/7 \]
+
+\subsection*{Check our progress}
+
+Here are calculations for the lower bound at the beginning and then after each of four steps:
+
+\begin{verbatim}
+>>> 6 * 1/2.0
+3.0
+>>> 12*780/3013.75
+3.1057652426379097
+>>> 24*240/1838.82
+3.1324436323294287
+>>> 48*66/1009.1666
+3.1392239893789586
+>>> 96*66/2017.25
+3.1409096542322468
+>>>
+>>> 10.0/71
+0.14084507042253522
+\end{verbatim}
+
+
+\end{document}

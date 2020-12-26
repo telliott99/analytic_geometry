@@ -1,0 +1,267 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Github/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+%break
+\title{Rotation of conic sections}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Rotation can make life difficult when working with conic sections.  
+
+We typically draw curves symmetric about an axis, usually the $y$-axis, but sometimes $x$- for variety.  However, there are other possibilities.
+
+Consider the parabola.  Usually, one opens up or down.  Sometimes it is rotated to open right or left.  These are obtained by having an equation like
+\[ a(y-k)^2 = (x-h)  \]
+with $x = f(y)$.
+
+To work a problem like this, I find the easiest thing to do is to switch $x$ for $y$, solve the problem, and switch back at the end.
+
+But it is also possible to rotate through a different angle, like $45^\circ$.  What happens then?  Well, basically we replace $x$ and $y$ with rotated coordinates $u$ and $v$ (or $x'$ and $y'$, whatever):
+
+For example we can use:
+\[ x = u \cos \theta - v \sin \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+
+I derived these  \hyperref[sec:Geometric_rotation]{\textbf{here}}.
+
+One thing that may puzzle you is a particular sign difference:
+
+\[
+r_{cw} =
+\begin{bmatrix}
+\ \ \cos t \ \sin t \\
+-\sin t \ \cos t 
+\end{bmatrix}
+\ \ \ \ \ \ \ \ \ 
+r_{ccw} =
+\begin{bmatrix}
+\cos t \ - \sin t \\
+\sin t\ \ \ \ \ \cos t 
+\end{bmatrix}
+\]
+
+What's going on is that rotation may be clockwise or counter-clockwise.  
+
+(Another thing that can happen is that a cw rotation of the coordinate system is the same as the ccw rotation of the points.  So it depends on the derivation.)
+
+You can test by rotating the unit vector $(1,0)$.  Let $t = 90$ degrees counter-clockwise and then
+\[ r_{ccw} = 
+\begin{bmatrix}
+\ 0 \ -1 \\
+1 \ \ \ \  0 
+\end{bmatrix}
+\]
+
+$r_{ccw} (1,0) = (0,1)$, turning $\mathbf{\hat{i}}$ into $\mathbf{\hat{j}}$, which checks.
+
+It is just a matter of notation whether we write the matrix form or something like
+
+\[ x = u \cos \theta - v \sin \theta \]
+\[ y = u \sin \theta + v \cos \theta \]
+
+With $45^\circ$, $\sin \theta = \cos \theta = 1/ \sqrt{2}$.
+Let
+\[ k = \sin \theta = \cos \theta = 1/ \sqrt{2} \]
+Consider the parabola
+\[ y = ax^2 + bx + c \]
+and substitute for $x$ and $y$ as given above
+\[ ku + kv = a(ku - kv)^2 + b(ku - kv) + c \]
+\[ u + v = ak(u^2 - 2uv + v^2) + b(u - v) + \frac{c}{k} \]
+
+Now, we might attempt to solve this for $v$ in terms of $u$, but there is a new term $-2uv$ which mixes up $u$ and $v$.
+
+Upon encountering a problem with mixed $xy$ and other powers, the best thing is to rotate to get rid of the $xy$ stuff, and we'll see how to do that in the next section.
+
+For a second example, consider the hyperbola:
+\[ x^2 - y^2 = 2 \]
+
+This curve has $x = \sqrt{2}$ when $y = 0$, (and no $y$ value satisfies the equantion when $x = 0$).  It opens to left and right.  $\sqrt{2}$ is the distance from the origin to the vertex.
+
+Now we want to turn the curve by $45^\circ$ ccw.  
+
+$\sin \pi/4 = \cos \pi/4 = 1/ \sqrt{2}$.  So the matrix is
+
+\[ r_{ccw} = 
+\begin{bmatrix}
+\ \ 1/\sqrt{2} \ \  \ -1/\sqrt{2} \\
+1/\sqrt{2} \ \ \ \ \ \ \ 1/\sqrt{2} 
+\end{bmatrix}
+\]
+
+which amounts to writing
+\[ x = \frac{1}{\sqrt{2}} (u - v), \ \ \ \ \ \ y = \frac{1}{\sqrt{2}} (u + v) \]
+so
+\[ x^2 - y^2 = 2 \]
+\[ (u - v)^2 - (u + v)^2 = 4 \]
+\[ u^2 + 2uv + v^2 - u^2 + 2uv - v^2 = 4 \]
+\[ uv = 1 \]
+
+This certainly looks familiar!
+
+A plot will show that $(1,1)$ is on the curve at the point of closest approach.  The distance from the origin to the vertex is thus $\sqrt{2}$, which is the same as the one we started with above, $x^2 - y^2 = 2$.
+
+\subsection*{general problem}
+The most general equation for a parabola, ellipse or hyperbola is
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+
+This applies to rotated versions of all three.
+
+Kline says (Chapter 7) to consider a rotation through an angle $\theta$.  I will use $t$ for $\theta$ 
+We wrote above
+\[ x = u \cos t - v \sin t \]
+\[ y = u \sin t + v \cos t \]
+
+First compute the products: 
+
+$\circ$  $x^2 = u^2 \cos^2 t - 2 uv \sin t \cos t + v^2 \sin^2 t$
+
+$\circ$  $xy = u^2 \sin t \cos t + uv \cos^2 t - uv \sin^2 t - v^2 \sin t \cos t$
+
+$\circ$  $y^2 = u^2 \sin^2 t + 2uv \sin t \cos t + v^2 \cos^2 t$
+
+Now try substituting into the general equation (I know, it's a mess).  We collect the coefficients for all the terms $u^2$, $uv$, $v^2$, etc., separately:
+
+$\circ$  $\ [ A \cos^2 t + B \sin t \cos t + C \sin^2 t \ ] \ u^2$
+
+$\circ$  $\ [ -2A \sin t \cos t + B \cos^2 t - B \sin^2 t + 2C \sin t \cos t \ ] \ uv$
+
+$\circ$  $\ [ A \sin^2 t - B \sin t \cos t + C \cos^2 t \ ] \ v^2$
+
+$\circ$  $\ [ D \cos t + E \sin t \ ] \ u$
+
+$\circ$  $\ [ -D \sin t + E \cos t \ ] \ v$
+
+We don't need most of this.
+
+The clever insight is that we can choose the angle $t$ so as to eliminate the coefficient of the term that mixes $u$ and $v$:  namely $uv$.
+
+\[ -2A \sin t \cos t + B \cos^2 t - B \sin^2 t + 2C \sin t \cos t = 0 \]
+
+Remember those sum of angles formulas!
+\[ \cos^2 t - \sin^2 t = \cos 2 t \]
+\[ 2 \sin t \cos t = \sin 2 t \]
+So
+\[ -A \sin 2t + B \cos 2t + C \sin 2t = 0 \]
+\[ (C - A) \sin 2t + B \cos 2t = 0 \]
+giving
+\[ \cot 2t = \frac{A - C}{B} \]
+\[ \tan 2t = \frac{B}{A - C} \]
+
+\subsection*{example}
+
+Consider again
+\[ xy = 1 \]
+
+Here $A$ and $C$ are zero, while $B = 1$.  What angle's tangent is not defined?  $\pi/2$. As $2t$ approaches $\pi/2$,  its tangent approaches $\infty$.  So the value of $t$ we seek is $t = \pi/4$.
+
+We go back and compute the coefficients for all the other terms.  Since only $B \ne 0$ and since $\sin \pi/4 = \cos \pi/4 = 1/\sqrt{2}$, we get
+\[ [ \ \frac{A}{2}  + \frac{B}{2} + \frac{C}{2} \ ] \ u^2 + \  [ \ \frac{A}{2}  - \frac{B}{2} + \frac{C}{2} \ ] v^2 = 1 \]
+\[ = \frac{u^2}{2}  -\frac{v^2}{2} = 1  \]
+\[ u^2 - v^2 = 2 \]
+which is the equation of a rectangular hyperbola opening left and right.
+
+\subsection*{test}
+
+Suppose you run into a general conic equation with some version of 
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+Ask these questions to decide what you have:
+\begin{center} \includegraphics [scale=0.6] {conic_test.png} \end{center}
+
+Kline goes through the effort of showing that, after rotating to a standard orientation, \emph{every} equation of the general form
+\[ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0 \]
+can be translated to the origin to give a standard parabola, circle, ellipse or hyperbola.
+
+Not every quadratic equation gives a conic.  Some are "degenerate".  
+
+For example, having done all the right manipulations, we might end up with something like
+\[ A'(x-h)^2 + B'(y-k)^2 = 0 \]
+
+which has only $x=h$ and $y=k$ as a solution.  It's a point.  And if $A$, $C$ and $F$ are all negative:  there is no solution in the real numbers.
+
+\subsection*{conic sections}
+
+Everyone learns in high school that the conic sections can be obtained by slicing a double cone with a plane and taking the points that belong to both.  This can get complicated for several reasons, which is why they don't usually do examples, even in basic calculus.
+
+\begin{center} \includegraphics [scale=0.4] {conic_sections.png} \end{center}
+
+The inclination of the plane must match that of the cone in order to obtain a parabola.  Take the dot product of the normal vector to the plane with the unit vector for the $z$-axis, divide by the length of $\mathbf{N}$, and that's $\cos \phi$, the angle made with the vertical.  If we call $\theta$ the angle with the $xy$-plane, that's the complement of $\phi$.  Which has to match the inclination of the cone, namely $H/R = \cos \theta$.
+
+The distance between the point of closest approach to the plane and the vertex of the cone will change the shape factor.  As you go up the cone, the curvature of the level curves of the cone becomes shallower.
+
+And the orientation of the plane, the direction in which its normal vector points, will determine whether the final result has any terms that mix $x$ and $y$.  For our example, we pick a normal vector that aligns with the $y$-axis.  We want $\mathbf{N} \cdot \mathbf{\hat{i}} = 0$, which will happen if the $x$-component of $\mathbf{N}$ is zero.
+
+Here is a simple example.
+
+The level curves of a cone are
+\[ x^2 + y^2 = r^2 \]
+
+and the equation of the cone is $z = kr$ where $k = H/R$ is a constant.  For simplicity, suppose $k = 1$.
+
+Now, let's have a plane like
+\[ z = y + 1 \]
+
+This plane has normal vector
+\[ \mathbf{N} = \ \langle 0, -1, 1 \rangle \]
+
+so the $x$-axis lies in the plane because $\mathbf{N} \cdot \mathbf{\hat{i}} = 0$.  Another vector orthogonal to both and also in the plane is $\langle 0, 1, 1 \rangle$.
+
+The normal vector to the cone depends on where you are, but if you are at $x=0, y=1, z=1$ then it would be
+\[ \mathbf{N} = \ \langle 0, 1, -1 \rangle \]
+
+In the $yz$-plane it points down at a 45 degree angle.  The two normal vectors are orthogonal, so if there is a solution it should be a parabola.
+
+We can see that there should be a solution, because the plane intersects the $y$-axis at $y = -1$ ($z = 0$) and the $z$-axis at $z = 1$.  If you draw a sketch, one point is outside the cone and the other inside it, so the plane must cut the cone.
+
+Every point on the intersection of the plane and the cone satisfies both equations:
+\[ \sqrt{x^2 + y^2} = 1 + y \]
+\[ x^2 + y^2 = 1 + 2y + y^2 \]
+\[ x^2/2 = y + 1/2 \]
+
+This is a parabola but it is \emph{not} the parabola formed by the intersection.  It is the projection of that intersection onto the $xy$-plane.  You can tell because it has no $z$ in it.
+
+Such projections are linear transformations, which simply amount to rescaling of the variables $x$ to $x'$ and $y$ to $y'$ (in this case only the latter) without changing the nature of the curve---a parabola is still a parabola.  
+
+However, an ellipse may become a circle, and vice-versa.
+
+In this case, the normal vector forms an angle of 45 degrees with the vertical $z$-axis since
+\[ \cos \theta = \frac{\langle 0, -1, 1 \rangle \cdot \langle 0, 0, 1 \rangle}{\sqrt{1 + 1} \ \sqrt{1}} = \frac{1}{\sqrt{2}} \]
+This is the factor by which the actual curve is stretched compared to the projection in the plane.
+
+For the general problem to find the equation of the parabola drawn in our inclined plane, we would need to rotate all the points on the curve using angles obtained from the normal vector.  We want to tilt $\mathbf{N}$ so that it points straight up and has its magnitude unchanged.
+
+\url{https://en.wikipedia.org/wiki/Rotation_matrix}
+
+In 3D we we could rotate points (or the coordinate system) first with respect to the $xy$-plane (ignoring $z$) using the standard transformation with this matrix
+
+\[
+\begin{bmatrix}  
+\cos \theta & -\sin \theta & 0 \\
+\sin \theta & \ \  \cos \theta & 0 \\
+0 & 0 & 1 
+\end{bmatrix}
+\begin{bmatrix}  x \\ y \\ z \end{bmatrix}
+\]
+
+This is the same rotation that we had before --- it leaves the $z$-coordinate unchanged.  The relevant $t$ is calculated from the $x$ and $y$ components of $\mathbf{N}$ using $t = \tan^{-1} y/x$.  Then use the given matrix, or perhaps switch the signs on the sine.
+
+After $\mathbf{N}$ has been rotated so that it lies along either the $x$- or $y$-axis, then rotate in the $xz$-plane or $yz$-plane until N is vertical.
+
+Having done this, I believe there should be no mixed terms containing $xy$, so we won't need to rotate to remove those, as done before.
+ 
+\end{document}

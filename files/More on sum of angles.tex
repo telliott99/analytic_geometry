@@ -1,0 +1,110 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Sum of angles}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+Here are several other derivations that I've come across over the years.  You only need what we've given above, but they are interesting to work through and give practice in dealing with trig functions.
+
+\subsection*{calculus}
+
+All you need to know for this is that the derivative of sine is cosine and the derivative of the cosine is minus the sine.  If you don't know about derivatives yet, just skip this example.
+
+Suppose we know one of the formulas already, say
+\[ \cos s + t = \cos s \cos t - \sin s \sin t \]
+
+Treat $t$ as a constant and take the derivative with respect to $s$.  The left-hand side is
+
+\[ \frac{d}{ds} \ \cos s + t = - \sin s + t \]
+whlle the right-hand side is:
+\[ \frac{d}{ds} \ ( \cos s \cos t - \sin s \sin t) = - \sin s \cos t - \cos s \sin t \]
+
+But these are equal!  Multiplying by $-1$, we have that
+\[ \sin s + t = \sin s \cos t + \cos s \sin t \]
+
+Going the other way works as well, as does treating $t$ as the variable.
+
+\subsection*{vector rotation}
+
+I want to take a moment to introduce a concept that gives another simple proof of the sum of angles theorems.  We don't have time to cover it in the detail it really deserves, that's for later.
+
+Start with the idea of a \emph{vector} from the origin to a point.  Vectors have length --- the vectors depicted are unit vectors with length $1$.  They also have a direction.  The unit vector along the $x$-axis can be represented as the pair of $x,y$-coordinates $(1,0)$.
+
+Let us rotate the vector in the counter-clockwise direction by an angle $\phi$.  The new coordinates of the head of the vector (marked with the arrow) are $(\cos \phi, \sin \phi)$.  We have
+\[ 1, 0 \rightarrow \cos \phi, \sin \phi \]
+for a vector $x$ units long we have
+\[ x, 0 \rightarrow x \cos \phi, x \sin \phi \]
+ 
+By similar reasoning
+\[ 0, 1 \rightarrow - \sin \phi, \cos \phi \]
+\[ 0, y \rightarrow - y \sin \phi, y \cos \phi \]
+We get a minus sign because the rotated unit vector that started pointing straight up is now in the second quadrant, the $x$-component is negative.
+
+\begin{center} \includegraphics [scale=0.4] {rotate_vectors.png} \end{center}
+
+For a general vector $(x,y)$ the resulting vector is $(x',y')$ and the components are:
+\[ x' = x \cos \phi - y \sin \phi \]
+\[ y' = x \sin \phi + y \cos \phi \]
+
+Now, suppose we rotate a second time, by an angle $\theta$.  Just add a prime for each and substitute $\theta$ for $\phi$.
+\[ x'' = x' \cos \theta - y' \sin \theta \]
+\[ y'' = x' \sin \theta + y' \cos \theta \]
+
+Write $x''$ in terms of the original $x$ and $y$:
+\[ x'' = x' \cos \theta - y' \sin \theta \]
+\[ = (x \cos \phi - y \sin \phi) \cos \theta - (x \sin \phi + y \cos \phi) \sin \theta \]
+\[ = x \cos \phi \cos \theta - y \sin \phi \cos \theta - x \sin \phi \sin \theta - y \cos \phi \sin \theta \]
+\[ = x \ [ \ \cos \phi \cos \theta - \sin \phi \sin \theta \ ] \ - y \ [ \ \sin \phi \cos \theta + \cos \phi \sin \theta \ ] \]
+
+The key idea is that we must get the same result if we turn through both angles at once:
+\[ x'' = x ( \cos \phi + \theta) - y (\sin \phi + \theta) \]
+
+The cofactors of $x$ and $y$ must separately be equal:
+\[ \cos \phi + \theta = \cos \phi \cos \theta - \sin \phi \sin \theta \]
+\[ \sin \phi + \theta = \sin \phi \cos \theta + \cos \phi \sin \theta \]
+
+Those are our formulas!
+
+If you know about matrix multiplication, you can write 
+
+\[ 
+\begin{bmatrix}
+\ \ \cos s \ \sin s \\
+-\sin s \ \cos s 
+\end{bmatrix}
+\]
+and then
+\[
+\begin{bmatrix}
+\ \ \cos s \ \sin s \\
+-\sin s \ \cos s 
+\end{bmatrix}
+\begin{bmatrix}
+\ \ \cos t \ \sin t \\
+-\sin t \ \cos t 
+\end{bmatrix}
+= \begin{bmatrix}
+\ \ \cos s+t \  \sin s+t \\
+- \sin s+t \ \ \cos s+t
+\end{bmatrix}
+\]
+The simple multiplication rule will recover our formulas.
+
+\end{document}

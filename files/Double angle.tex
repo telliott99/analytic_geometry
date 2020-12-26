@@ -1,0 +1,158 @@
+\documentclass[11pt, oneside]{article} 
+\usepackage{geometry}
+\geometry{letterpaper} 
+\usepackage{graphicx}
+	
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{hyperref}
+
+\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+% \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
+
+\title{Doubel angle formulas}
+\date{}
+
+\begin{document}
+\maketitle
+\Large
+
+%[my-super-duper-separator]
+
+\label{sec:double_angle}
+
+To review very quickly, sine:
+\[ \sin s + t = \sin s \cos t + \cos s \sin t \]
+\[ \sin 2t = 2 \sin t \cos t \]
+
+And cosine:
+\[ \cos s + t = \cos s \cos t - \sin s \sin t \]
+\[ \cos 2t = \cos^2 t - \sin^2 t \]
+\[ = 2 \cos^2 t - 1 \]
+
+Sometimes it is helpful to have a simpler notation, especially when we want to do algebra.  Let's use the symbols $S,C,$ and $T$ for sine, cosine and tangent, respectively.
+
+Mark the values we are deriving (for one-half a double angle) with primes.  We have:
+\[ S = 2S'C' \]
+\[ C = C'^2 - S'^2 = 2C'^2 - 1 \]
+
+The inverse double tangent is then
+
+\[ \frac{1}{T} = \frac{2C'^2 - 1}{2S'C'} \]
+\[ = \frac{1}{T'} - \frac{1}{S} \]
+\[ \frac{1}{T'} = \frac{1}{T} + \frac{1}{S}  \]
+
+This is the formula used to such great effect by Archimedes in obtaining an approximation for $\pi$.
+
+\[ \cot t = \cot 2t + \csc 2t \]
+
+Another formula that is often included in tables is one for the double tangent.  We derive this by going back to the original addition formulas:
+
+\[ \tan s + t = \frac{\sin s + t}{\cos s + t} \]
+\[ = \frac{\sin s \cos t + \cos s \sin t}{\cos s \cos t - \sin s \sin t} \]
+Divide through by $\cos s \cos t$:
+\[ = \frac{\tan s + \tan t}{1 - \tan s \tan t} \]
+
+For the double-angle, this becomes:
+\[ \tan 2t = \frac{2 \tan t}{1 - \tan^2 t} \]
+
+\subsection*{geometric derivation of double angle}
+
+Here is a simple geometric derivation of the double angle formula for sine.  We start with an inspired diagram.
+
+\begin{center} \includegraphics [scale=0.4] {double_angle.png} \end{center}
+
+From our work with arcs, we know that angle $\phi$ on the left is one-half the central angle $\theta$, and from Thales' theorem, that the angle on the circle at the top-right (formed by the dotted lines) is a right angle.  
+
+So the small right triangle with hypotenuse $h$ also has angle $\phi$, as labeled, since they have the same complementary angle.
+
+It helps to know where we're going, as well.  From above:
+\[ \sin \theta = 2 \sin \phi \cos \phi \]
+
+Just reading off the small triangle we have that
+\[ \sin \phi \cos \phi = \frac{x}{h} \cdot \frac{y}{h} \]
+\[ = \frac{xy}{h^2} \]
+
+and Pythagoras says that $h^2 = x^2 + y^2$ so:
+\[ = \frac{xy}{x^2 + y^2} \]
+
+We're looking to involve $\theta$.  From the right triangle containing that angle:
+\[ (1 - x)^2 + y^2 = 1 \]
+\[ -2x + x^2 + y^2 = 0 \]
+\[ 2x = x^2 + y^2 \]
+
+So, substituting into what we had above:
+\[ \sin \phi \cos \phi = \frac{xy}{2x} \]
+\[ 2 \sin \phi \cos \phi = y = \sin \theta \]
+
+For the other one, again we remind ourselves of the target:
+\[ \cos \theta = \cos^2 \phi - \sin^2 \phi \]
+
+\begin{center} \includegraphics [scale=0.4] {double_angle.png} \end{center}
+
+Substituting, using the diagram:
+
+\[ \cos \theta = \frac{y^2}{h^2} - \frac{x^2}{h^2} \]
+\[ = \frac{y^2 - x^2}{h^2} \]
+\[ = \frac{y^2 - x^2}{x^2 + y^2} \]
+
+But $2x = x^2 + y^2$:
+
+\[ = \frac{2x -x^2 - x^2}{2x} \]
+\[ = 1 - x \]
+\[ = \cos \theta \]
+
+$\square$
+
+Similar calculations can be done for a diagram that is slightly relabeled, to provide a simple geometric proof of the Pythagorean theorem.
+
+\begin{center} \includegraphics [scale=0.4] {double_angle_2.png} \end{center}
+
+Thales theorem allows us to deduce that the triangle with two dotted sides is a right triangle, hence the two angles labeled $\phi$ are equal by complementarity with the same angle.  By similar triangles, we have then that
+\[ \tan \phi = \frac{y}{r + x} = \frac{r - x}{y} \]
+\[ y^2 = r^2 - x^2 \]
+\[ x^2 + y^2 = r^2 \]
+
+For the double-angle calculations, there are two triangles with base angle $\phi$ and the hypotenuse a dotted line.  The squared lengths of the two hypotenuses are:
+\[ (r + x)^2 + y^2 = r^2 + 2rx + x^2 + y^2 \]
+\[ = 2r^2 + 2rx = 2r(r + x) \]
+and 
+\[ (r - x)^2 + y^2 = r^2 - 2rx + x^2 + y^2 \]
+\[ = 2r^2 - 2rx = 2r(r - x) \]
+
+So then the products of $\sin$ and $\cos$ work out to be simple ratios, which in each case will have further cancelations.
+
+As one example, for the large triangle:
+\[ \cos^2 \phi - \sin^2 \phi = \frac{(x+r)^2}{2r(r + x)} - \frac{y^2}{2r(r + x)} \]
+
+Let us just work with the numerator for a minute:
+\[ (x+r)^2 - y^2 = x^2 + 2xr + r^2 - (r^2 - x^2) \]
+\[ 2x^2 + 2xr = 2x(x + r) \]
+So we see that $2(x+r)$ cancels and the ratio is just
+\[ \frac{x}{r} \]
+which is $\cos \theta$.
+
+\subsection*{another calculation}
+We found previously that 
+\[ \sin \frac{\pi}{4} = \cos \frac{\pi}{4} = \frac{1}{\sqrt{2}} \]
+\[ \sin \frac{\pi}{6} = \cos \frac{\pi}{3} = \frac{1}{2} \]
+\[ \sin \frac{\pi}{3} = \cos \frac{\pi}{6} = \frac{\sqrt{3}}{2} \]
+
+These angles correspond to 30, 45 and 60 degrees.  It might be nice to have sine and cosine of 15 and 75 degrees as well.  That would make even divisions of the first 90 degrees.  We can get them as the sum and difference of $\pi/4$ and $\pi/6$.
+
+Let $s = \pi/4$ and $t = \pi/6$.  Then
+
+\[ \sin \frac{\pi}{12} = \sin s - t = \sin s \cos t - \sin t \cos s \]
+\[ = \frac{1}{\sqrt{2}} \cdot \frac{\sqrt{3}}{2} - \frac{1}{2} \cdot \frac{1}{\sqrt{2}} = \frac{\sqrt{3} - 1}{2 \sqrt{2}} \]
+\[ \cos \frac{\pi}{12} = \cos s - t = \cos s \cos t + \sin s \sin t \]
+\[ = \frac{\sqrt{3}}{2} \cdot \frac{1}{\sqrt{2}} - \frac{1}{2} \cdot \frac{1}{\sqrt{2}} = \frac{\sqrt{3} + 1}{2 \sqrt{2}} \]
+
+We just check that $\sin^2 \theta + \cos^2 \theta = 1$:
+\[ \frac{(\sqrt{3} - 1)^2 + (\sqrt{3} + 1)^2}{(2 \sqrt{2})^2} \]
+\[ = \frac{3 - 2 \sqrt{3} + 1 + 3 + 2 \sqrt{3} + 1}{8} = 1 \]
+
+We can calculate similarly for $s + t = 5 \pi/12$ or just switch sine and cosine from $\pi/12$.
+
+\end{document}
