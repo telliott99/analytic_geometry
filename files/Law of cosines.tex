@@ -25,9 +25,9 @@
 
 \subsection*{Law of cosines}
 
-Designate the lengths of a triangle's sides as $a,b,c$ and the angle between sides $a$ and $b$ as $C$ (because it is opposite side $c$).  The law of cosines says that
-
 \begin{center} \includegraphics [scale=0.5] {cosine_law.png} \end{center}
+
+Designate the lengths of a triangle's sides as $a,b,c$ and the angle between sides $a$ and $b$ as $C$ (because it is opposite side $c$).  The law of cosines says that
 
 \[ c^2 = a^2 + b^2 - 2 a b \cos C \]
 
@@ -42,8 +42,22 @@ $\Delta$ is \emph{subtracted} from the length of $c$.  $\Delta$ should be larger
 
 That's exactly what the law of cosines does!  $\Delta$ is some factor times $a$ times $b$ times $\cos C$ and the whole term has a minus sign.
 
+\subsection*{visual proof}
+\begin{center} \includegraphics [scale=0.4] {law_of_cosines2.png} \end{center}
+
+Draw a right triangle using one diagonal of a circle (so any third point on the circle forms a right angle), then draw any other diagonal, this time, in red.  
+
+At the point of interest, the red diagonal is divided into $a + c$ and $a - c$.  The total length of the base of the black right triangle (not the hypotenuse) is $2a \cos \theta$ so it is divided into $b$ and $2a \cos \theta - b$.  
+
+We apply the theorem on chords of a circle from (\hyperref[sec:chord_segments]{\textbf{here}}).  The products of the chord segments are equal.
+
+\[ (a + c)(a - c) = (2a \cos \theta - b)(b) \]
+\[ a^2 - c^2 = 2ab \cos \theta - b^2 \]
+\[ c^2 = a^2 + b^2 - 2ab \cos \theta \]
+
+
 \subsection*{derivation}
-The result follows from the Pythagorean Theorem.  (In fact, we can reuse the same diagram that was shown for the algebraic proof of the theorem).
+The result also follows from the Pythagorean Theorem.  (In fact, we can reuse the same diagram that was shown for the algebraic proof of the theorem).
 
 For a triangle with sides $a$, $b$ and $c$ and angles opposite those sides $A$, $B$ and $C$, divide the third side into two lengths $c=x+y$ using the vertical altitude from vertex $C$.
 \begin{center} \includegraphics [scale=0.4] {triangle3.png} \end{center}
@@ -119,26 +133,10 @@ Substituting into the equation we had above:
 
 $\square$
 
-Since the first proof is simpler, we could view the second as a proof of the formula for sum of cosines, in reverse.
-
-\subsection*{proof without words}
-\begin{center} \includegraphics [scale=0.4] {law_of_cosines.png} \end{center}
-
-Adding some words:
-
-Draw a right triangle using one diagonal of a circle (any third point on the circle forms a right angle), then draw any other diagonal, in red.  
-
-At the point of interest, the red diagonal is divided into $a + c$ and $a - c$.  The base of the black right triangle is $2a \cos \theta$ so it is divided into $b$ and $2a \cos \theta - b$.  
-
-We apply the theorem on chords of a circle from (\hyperref[sec:chord_segments]{\textbf{here}}).  The products of the chord segments are equal.
-
-\[ (a + c)(a - c) = (2a \cos \theta - b)(b) \]
-\[ a^2 - c^2 = 2ab \cos \theta - b^2 \]
-\[ c^2 = a^2 + b^2 - 2ab \cos \theta \]
-
+Since the first algebraic proof is simpler, we could view the second as a proof of the formula for sum of cosines, in reverse.
 
 \subsection*{Law of sines}
-I'll just mention another identity called the law of sines.  In contrast to the law of cosines, it is fairly trivial to prove.
+Here's a simple identity called the law of sines.  In contrast to the law of cosines, it is fairly trivial to prove.
 \begin{center} \includegraphics [scale=0.4] {triangle4.png} \end{center}
 
 \[ \frac{h}{b} = \sin A \]

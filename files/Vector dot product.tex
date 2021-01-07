@@ -305,4 +305,71 @@ which is also obvious from the figure.  We didn't need vectors for this.
 We obtain the same result for $\cos \phi$ as for $\cos \theta$ and then finally
 \[ \theta = \phi \]
 
+\subsection*{one more}
+
+A tetrahedron has four faces, each of which is an equilateral triangle.  Suppose the side length is $2$.  Pick two sides which do not touch, and find the distance between the midpoints.
+
+\begin{center} \includegraphics [scale=0.4] {tetrahedron2.png} \end{center}
+
+Simplify the notation by just considering the coordinates of the points.  Let $A$ and $B$ lie along the $x$-axis.  The coordinates are simply $A = (0,0,0)$ and $B = (2,0,0)$.  
+
+Let point $C$ lie in the $xy$-plane.  The $x$-coordinate of $C$ is also easy, it is midway between $A$ and $B$ at $x = 1$.  
+
+What about $y$?  Use the Pythagorean theorem (or just recall $\cos \pi/6$)
+\[ y^2 + 1^2 = 2^2 \]
+\[ y = \sqrt{3} \]
+
+The coordinates of $C$ are $(1, \sqrt{3}, 0)$.
+
+What about $D$?  Clearly, the $x$-coordinate of $D$ is the same as that of $C$, namely, $1$.
+
+What is $y$?  By symmetry, the $(x,y)$ position of $D$ must be equidistant from each of the three points $A$, $B$, $C$.
+
+The base $\triangle ABC$ is equilateral, so the medians, angle bisectors and altitudes all coincide.  Perhaps you remember remember Ceva's theorem.
+
+Or just draw the triangles containing the altitudes, you can find that the distance from the $x$-axis up to the $y$-coordinate of $D$ is one-third of the total distance to the $y$-coordinate of $C$.
+
+Thus $y = (1/3) \ \sqrt{3} = 1/\sqrt{3}$.
+
+Since the total distance from $A$ to $D$ is $2$, and we know all of $D$'s coordinates except $z$:
+
+\[ 1^2 + (1/ \sqrt{3})^2 + z^2 = 4 \]
+\[ \frac{3}{3} + \frac{1}{3} + z^2 = \frac{12}{3} \]
+\[ z^2 = \frac{8}{3} \]
+\[ z = \frac{2 \sqrt{2}}{\sqrt{3}} \]
+
+This should be verified by calculating the lengths of the three sides that end at $D$ (they should all work out to be equal to $2$).
+
+\[ AD^2 = BD^2 = 1 + (\frac{1}{\sqrt{3}})^2 + (\frac{2 \sqrt{2}}{\sqrt{3}})^2 =  \frac{12}{3} \]
+\[ CD^2 = 0^2 + (\sqrt{3} - \frac{1}{\sqrt{3}})^2 + (\frac{2 \sqrt{2}}{\sqrt{3}})^2 = \frac{4}{3} + \frac{8}{3} = \frac{12}{3} \]
+
+Now, let $P$ be the midpoint of $AB$ with coordinates $(1,0,0)$.  
+
+\begin{center} \includegraphics [scale=0.4] {tetrahedron3.png} \end{center}
+
+Let $Q$ be the midpoint of $CD$.  The coordinates of $Q$ are:
+
+\[ Q =  C + \frac{1}{2} (D - C) = \frac{1}{2} \ (C + D) \]
+\[ =\frac{1}{2} \cdot (1+1, \sqrt{3} + 1/\sqrt{3}, 2 \sqrt{2}/\sqrt{3}) \]
+\[ = (1, 2/ \sqrt{3}, \sqrt{2}/\sqrt{3}) \]
+
+So $Q - P$ is $(0,\sqrt{3} - 1/\sqrt{3}, \sqrt{2}/\sqrt{3})$.
+
+And its length is
+\[ d^2 = (2/\sqrt{3})^2 + (\sqrt{2}/\sqrt{3})^2 \]
+\[ = \frac{4}{3} + \frac{2}{3} \]
+\[ d = \sqrt{2} \]
+
+A quicker way to do this problem is to notice that the vector connecting the midpoints has no $x$ in it, so its dot product with $\mathbf{AB}$, which has only an $x$-component, must be zero.  That means $QP$ forms a right angle with $AB$.
+
+By symmetry, the angle where $\mathbf{PQ}$ meets $\mathbf{CD}$ is also a right angle.
+
+\begin{center} \includegraphics [scale=0.4] {tetrahedron3.png} \end{center}
+
+$\triangle PCQ$ is a right triangle with hypotenuse $PC = \sqrt{3}$ and one side, $QC$, equal to $1$.  The unknown is then
+\[ (\sqrt{3})^2 = 1^2 + d^2 \]
+\[ d = \sqrt{2} \]
+
+For this one, we really didn't need to calculate the $z$-components at all.
+
 \end{document}

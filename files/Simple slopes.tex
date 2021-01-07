@@ -25,6 +25,8 @@
 
 \hypertarget{first_calculus}{}
 
+[This chapter owes a particular debt to Gil Strang].
+
 To introduce the two fundamental ideas in calculus, consider two measuring devices used while driving a car.  Most good drivers look fairly often at the speedometer, which measures speed or velocity, or how fast you're going.  
 
 On the other hand, if someone gives you directions like --- go three and a half miles and then turn left (where the old gas station used to be), you need to be watching your odometer.
@@ -74,24 +76,22 @@ where $a$ is the acceleration.
 \begin{center} \includegraphics [scale=0.5] {velocity_time_4.png} \end{center}
 What about the distance?  It turns out that the distance is once again the area under the curve.
 
-If $a$ is non-zero and constant, then $v$ changes at a constant rate.  Starting from time $0$, the final velocity will be $v = at$, but the distance traveled is no longer the product 
+Since $a$ isn't zero, $v$ must change with time.  
+
+If $a$ is non-zero and constant, then $v$ changes at a constant rate.  Starting from $0$, the final velocity will be $v = at$, but the distance traveled is no longer the product 
 \[ s = v \times t \stackrel{?}{=}  \]
 
-because this $v$ is the final velocity and that is not the correct $v$ to use.  We introduce subscripts to keep things straight.  The initial velocity is $v_i$ and the \emph{final} velocity is $v_f$.
-
-The distance traveled is the \emph{average} velocity times the elapsed time.  For smooth (constant) acceleration from zero to $v$, the average velocity is the average of the initial and final velocities:
-
-\[ v_{\text{avg}} = \frac{1}{2} \ (v_i + v_f) = \frac{1}{2} \ v_f \]
+because this $v$ is the final velocity and that is not the correct $v$ to use.  For variable velocity, the distance traveled is the \emph{average} velocity times the time.  For smooth (constant) acceleration from zero to $v$, the average velocity is the average of the initial and final velocities:
+\[ v_{\text{avg}} = \frac{1}{2} \ (v_i + v_f) = \frac{1}{2} \ v \]
 
 So the correct equation is:
-\[ s = v_{\text{avg}}\ t  = \frac{1}{2} \ v_f \cdot t \]
-
-and since $v_f = at$
+\[ s = v_{\text{avg}}\ t  = \frac{1}{2} \ v \cdot t \]
+and since $v = at$
 \[ s = \frac{1}{2} at^2 \]
 
 In this case, if we plot velocity as a function of time, we obtain a straight line that extends diagonally up with respect to the $x$-axis.  The distance traveled is the area under the curve, below the line and above the $x$-axis.  
 
-The shape whose area is needed is a triangle.  This also gives us the factor of $1/2$.
+The shape whose area is needed is a triangle.  This also accounts for the factor of $1/2$.
 
 \begin{center} \includegraphics [scale=0.5] {velocity_time_4.png} \end{center}
 
@@ -120,13 +120,7 @@ We'll say much more about this later.
 
 \subsection*{power rule}
 
-We will introduce the theory of calculus more thoroughly in another book.  For now, we just talk about a simple rule called the power rule.
-
-In the previous section the variables were velocity and time (and distance).  In general, velocity might be (i) constant, always the same independent of time, (ii) increasing linearly with time, (iii) dependent on the square of the time, or even (iv) some other power.
-
-The first three of these are (respectively) the equations of:  (i) a horizontal line, since $v$ is constant, (ii) any other non-vertical line ($v$ is proportional to $t$), and (iii), a parabola ($v$ is proportional to $t^2$).
-
-\begin{center} \includegraphics [scale=0.4] {functions.png} \end{center}
+We will introduce the theory of calculus more formally in the next section of the book.  For now, we just talk about a simple rule called the power rule.
 
 Switching notation to $y$ and $x$, suppose that $y$ is a \emph{function} of $x$ and write $y = f(x)$.
 
@@ -137,6 +131,10 @@ $\circ$ \ $y = c$
 $\circ$ \ $y = cx$
 
 $\circ$ \ $y = cx^2$
+
+These are (respectively) the equations of:  (i) a horizontal line, since $y$ is constant, (ii) any other non-vertical line ($y$ is proportional to $x$), and (iii), a parabola.
+
+\begin{center} \includegraphics [scale=0.4] {functions.png} \end{center}
 
 Suppose we are at some particular point on the curve, $x$.
 
@@ -207,19 +205,18 @@ As you accelerate from 0 to 60, there must be at least one moment in time when y
 
 Or, put still another way, when they built your house they didn't worry about the curvature of the earth.
 
-If $r$ is the radius of the earth in feet, and the house is $l = 50$ feet long, the drop due to curvature is $r - b$ where $b = \sqrt{r^2 - l^2}$
+If $r$ is the radius of the earth in feet, and the house is $a = 50$ feet long, the drop due to curvature is $r - b$ where $b = \sqrt{r^2 - l^2}$
 
 \begin{verbatim}
 r = 21120000
 b = 21119999.9999408
-r-b = 0.0000592
 \end{verbatim}
 
 That is about $0.00006$ feet over the length of a $50$ foot house, about a thousand times less than $1/16$ of an inch.  It is nearly 6 orders of magnitude, one part in a million.
 
 Since the changes in $x$ and $y$ are so small, we use the new nomenclature:  $dy$ and $dx$.
 
-\subsection*{power rule again}
+\subsection*{power rule}
 To actually calculate slopes for curves (and straight lines), use the power rule.
 
 For a horizontal line with zero slope:
@@ -267,5 +264,36 @@ This rule had already been discovered before Newton.  It's a toss-up whether Fer
 If you already know some calculus you're probably jumping out of your chair while reading this chapter because you've had it pounded into you that $dy/dx$ is not a quotient and believe that you can't simply multiply both sides of the equation by $dx$.
 
 Well, you can.  And I'll explain why as we go along.
+
+\subsection*{example}
+
+Strogatz (in his new book \emph{Infinite Powers}) has a simple example that may shed some light on what we're going to do here.
+
+Suppose we consider the cubic equation $y = x^3$ and evaluate the function at the point $x = 2$ so
+\[ y = x^3 = 2^3 = 8 \]
+
+and then ask what happens when we make a small change in $x$, say by the positive amount $\Delta x = 0.001$ so that $x + \Delta x = 2.001$.
+
+Then multiplying out, we would have that at the new point, the $y$-value is
+\[ (x + \Delta x)^3 = x + 3 x^2 {\Delta x} + 3 x{\Delta x}^2 + {\Delta x}^3 \]
+
+Let's just use a calculator:
+\[ 2.001^3 = 8.012006001 \]
+
+Can you see that 
+\[ x^3 = 8 \]
+\[ 3 x^2 {\Delta x} = 0.012 \]
+\[ 3 x{\Delta x}^2 = 0.000006 \]
+\[ {\Delta x}^3 = 0.000000001 \]
+
+As an approximation, we neglect the terms $3 x{\Delta x}^2 + {\Delta x}^3$ and then the difference between the new $y$ and the original one is simply
+\[  \Delta y = 3 x^2 {\Delta x}  \]
+\[  \frac{\Delta y}{\Delta x}  = 3 x^2 \]
+
+The trick is that if, in your problem, the error terms $3 x{\Delta x}^2 + {\Delta x}^3$ matter to the result you are trying to achieve, what you need to do is make $\Delta x$ smaller, so that perhaps $x + \Delta x = 2.000001$.  The error terms to be neglected will be of the order of $10^{-12}$ and $10^{-18}$.
+
+The error terms become a much smaller fraction of the answer, and so the answer becomes more closely correct.  That's the magic of the differential talking.
+
+
 
 \end{document}

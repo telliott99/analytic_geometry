@@ -99,24 +99,32 @@ Imagine a circle placed to the left of a graph.  We can think of the sine functi
 
 \subsection*{visualization of all six functions}
 
-Let us work with a unit circle.  Draw the radius to form the angle $\theta$ and then draw the vertical and horizontal components which we know are $\sin \theta$ and $\cos \theta$. 
-\begin{center} \includegraphics [scale=0.4] {six_funcs_5.png} \end{center}
-By extending the radius, we can draw several other triangles which are similar to the original one.  The angle equalities follow from the vertical angle and alternate interior angle theorems.
+We'll work with a unit circle.  Draw the radius of length $1$ to form the angle $\theta$ and then draw the vertical and horizontal components which we know are $\sin \theta$ and $\cos \theta$. 
+\begin{center} \includegraphics [scale=0.4] {six_funcs3.png} \end{center}
 
-In the first quadrant, the similar triangle with opposite side $t$ has a tangent which is $t/1$, but by similar triangles this is just $\tan \theta$.  It is not an accident that this is also the tangent to the circle at the point where the radius meets it.
+By extending the $x$-axis, we can draw another triangle  similar to the first one. If we temporarily say that the line segment colored blue has length $t$, we can see that it is the opposite side in a right triangle with angle $\theta$ where the adjacent side has length $1$.
 
-A similar argument justifies the label $t$ on the triangle in the third quadrant.
+\[ \frac{t}{1} = \tan \theta \]
+Hence $t$ is equal to $\tan \theta$.
 
-If we label the origin as $O$ and consider the line segment $OQ$ and call that length $s$, we have that $1/s = \cos \theta$, so $s = \sec \theta$.
+We can also modify the figure to get the inverse functions as lengths.
 
-There are two more.
-\begin{center} \includegraphics [scale=0.4] {six_funcs_5.png} \end{center}
+\begin{center} \includegraphics [scale=0.4] {six_funcs4.png} \end{center}
 
-The horizontal length $c$ in the third quarter is drawn horizontally to meet the $y$-axis at the same point where the circle crosses.  $c$ is the adjacent side for angle $\theta$ and the ratio with the opposite side which is just the radius of the circle is  $c$, but this is also the inverse of the tangent, the cotangent, so $c = \cot \theta$.
+The angle at the top of the figure, labeled in magenta, is also $\theta$.  The reason is that both angles labeled $\theta$ are complementary to the same angle in a right triangle, labeled $\theta'$.
 
-Finally, if $e$ is the length of the line segment $OP$, then
-\[ \cos \theta = \frac{c}{e} = \frac{\cot \theta}{e} = \frac{\cos \theta}{\sin \theta} \ \frac{1}{e} \]
-We have that $e$ is the inverse sine, known as the cosecant, and $e = \csc \theta$.
+The length in magenta labeled $\cot$ (cotangent) is the adjacent side in a right triangle with opposing side of length $1$ and an angle of $\theta$, hence it is equal to $\cot \theta$.
+
+The length in green is the hypotenuse in this same right triangle.  If we temporarily call this length $c$, we can write that
+
+\[ \frac{\cot \theta}{c} = \frac{\cos \theta}{c \sin \theta} = \cos \theta \]
+so that $c$ is equal to $1/\sin \theta$ or the cosecant.
+
+Finally, the secant is the long length along the $x$-axis.  If we temporarily label this length as $s$, then we have that 
+\[ \frac{s}{\csc \theta} = \frac{s}{1/\sin \theta} =  \frac{\sin \theta}{\cos \theta} \]
+so that $s$ is equal to $1/\cos \theta$ or the secant.
+
+\subsection*{another way}
 
 Here is another version that is similar, from Proofs without words:
 \begin{center} \includegraphics [scale=0.3] {six_funcs_6.png} \end{center}

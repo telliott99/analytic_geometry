@@ -47,17 +47,14 @@ A point is simply an ordered pair $(x,y)$ such as $(1,3)$.  Often points have in
 \subsection*{distance formula}
 The $x$- and $y$-axes are perpendicular to one another (a fancy word for that is \emph{orthogonal}).  
 
-Suppose we pick two particular points $(s,t)$ and $(u,v)$, plot them on a graph, and then draw the line that connects them.  Recall Euclid's first two postulates:
-
-$\bullet$  A straight line segment can be drawn joining any two points.
-
-$\bullet$   Any straight line segment can be extended indefinitely in a straight line.
+Suppose we pick two particular points $(s,t)$ and $(u,v)$, plot them on a graph, and then draw the line that connects them.
 
 The distance between the two points is given by the Pythagorean formula, where $\Delta x$ is the change in $x$ and $\Delta y$ is the change in $y$:
 \[ d = \sqrt{\Delta x^2 + \Delta y^2} \]
 It is often easier to use the squared distance and avoid the square root:
 \[ d^2 = \Delta x^2 + \Delta y^2 \]
 \[ = (s-u)^2 + (t-v)^2 \]
+
 Switching the order of $(s,t)$ and $(u,v)$ doesn't change the result.
 
 That's because
@@ -69,12 +66,12 @@ Now we want to derive an equation that describes (is valid for) all the points o
 \[ m = \frac{\Delta y}{\Delta x} = \frac{y-y'}{x-x'} \]
 
 This is called the \emph{point-slope equation}.  For any two particular points $(s,t)$ and $(u,v)$ one can plot a line between them.  The slope is
-\[ m = \frac{s - u}{t - v} \]
+\[ m = \frac{\Delta y}{\Delta x} = \frac{t - v}{s - u} \]
 
 One can write the two points in either order, with the same result since:
-\[ \frac{s - u}{t - v} = \frac{u - s}{v - t} \]
+\[ \frac{t - v}{s - u} = \frac{v - t}{u - s} \]
 
-Depending on the details, the value of $m$ might be zero, for a horizontal line, where all the values of $y$ are the same (which happens when $s = u$).  Or it might be undefined, for a vertical line, where all the values of $x$ are identical ($t = v$).  
+Depending on the details, the value of $m$ might be zero, for a horizontal line, where all the values of $y$ are the same (which happens when $t = v$).  Or it might be undefined, for a vertical line, where all the values of $x$ are identical ($s = u$).  
 
 In most cases, however, $m \ne 0$ and $m \in (-\infty, \infty)$.  That is, $m$ is usually non-zero and not infinite.
 
@@ -102,6 +99,25 @@ Subtracting:
 \[ v - t = m(u - s) \]
 which rearranges to give the desired result.
 
+Note that if we find the slope from two given points, we can write an equation
+\[ y = mx + y_0 \]
+
+where $m$ is some numeric value.  How to find $y_0$?  Simply plug in one of the original $(x,y)$ pairs and solve for $y_0$.
+
+\subsection*{example}
+
+Suppose we have two points $(1,1)$ and $(3,5)$.  The slope is
+\[ m = \frac{5 - 1}{3 - 1} = 2 \]
+
+Write
+\[ y = 2x + y_0 \]
+
+Plug in, say, $(1,1)$
+\[ 1 = 2 + y_0 \]
+\[ y_0 = -1 \]
+
+The equation of the line through these two points is $y = 2x - 1$, as you can easily verify.
+
 \subsection*{intersections}
 Often one has two lines (or curves) and we want to find the point(s) that lie on both.  We might have
 \[ y = 2x - 1 \]
@@ -112,15 +128,15 @@ Substitute from the second into the first:
 \[ x = 3 \]
 From the first equation, $y = 5$, and we check that $x = 3, y = 5$ solves the second equation as well.
 
-Another way to do this is to add a multiple of one equation to the other, such that one of the variables disappears.  Here there are two possibilities:
+Another way to do this is to add a multiple of one equation to the other.  Choose the multiple to make one of the variables disappear.  Here there are two possibilities:
 
 \[ y = 2x - 1 \]
 \[ 2y = -2x + 16 \]
-Addition gives $3y = 15, y = 5$.  Alternatively,
+Addition gives $3y = 15, y = 5$.  Find $x$ by substituting in either (or both) equations.  Alternatively,
 
 \[ y = 2x - 1 \]
 \[ -y = x - 8 \]
-Addition gives $3x - 9 = 0, x = 3$.
+Addition gives $3x - 9 = 0, x = 3$.  Find $y$ by substitution.
 
 \subsection*{orthogonality}
 If two lines cross each other at right angles we say they are \emph{orthogonal}.  In that case the slopes have a special relationship.  Their product is equal to $-1$.
