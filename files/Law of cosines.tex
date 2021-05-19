@@ -60,26 +60,26 @@ We apply the theorem on chords of a circle from (\hyperref[sec:chord_segments]{\
 The result also follows from the Pythagorean Theorem.  (In fact, we can reuse the same diagram that was shown for the algebraic proof of the theorem).
 
 For a triangle with sides $a$, $b$ and $c$ and angles opposite those sides $A$, $B$ and $C$, divide the third side into two lengths $c=x+y$ using the vertical altitude from vertex $C$.
-\begin{center} \includegraphics [scale=0.4] {triangle3.png} \end{center}
+\begin{center} \includegraphics [scale=0.4] {triangle6.png} \end{center}
 
 \emph{Proof.}
 
-\[ a^2 - x^2 = h^2 \]
-\[ b^2 - y^2 = h^2  \]
-
+\[ a^2 = x^2 + h^2 \]
+\[ b^2 = y^2 + h^2  \]
 So
-\[ a^2 = x^2 + h^2 = x^2 + b^2 - y^2 \]
+\[ a^2 - b^2 = x^2 - y^2 \]
 
-But
+Also
 \[ y = c - x \]
 \[ y^2 = c^2 - 2cx + x^2 \]
 
-Therefore:
-\[ a^2 = x^2 + b^2 - (c^2 - 2cx + x^2) \]
-\[ a^2 = b^2 - c^2 + 2cx  \]
+So going back to
+\[ a^2 - b^2 = x^2 - y^2 \]
+\[ = -c^2 + 2cx \]
 
+Rearranging
+\[ b^2 = a^2 + c^2 - 2cx \]
 Finally, $x = a \cos B$ so
-\[ a^2 = b^2 - c^2 + 2ac \cos B  \]
 \[ b^2 = a^2 + c^2 - 2ac \cos B \]
 
 This is the law of cosines.
@@ -90,7 +90,11 @@ Any side of a triangle can be expressed in terms of the other two and the cosine
 \[ c^2 = a^2 + b^2 - 2ab \cos C  \]
 \[ a^2 = b^2 + c^2 - 2bc \cos A  \]
 
-\emph{Alternate Proof.}
+\subsection*{alternate proof}
+
+This approach is a bit longer, but there is a payoff.
+
+\emph{Proof}.
 
 Add the first two equations and rearrange:
 \[ a^2 + b^2 = x^2 + y^2 + 2h^2 \]
@@ -105,7 +109,7 @@ so
 
 We need to show that $h^2 - xy$ somehow equals $ab \cos C$.  
 
-\begin{center} \includegraphics [scale=0.4] {triangle3.png} \end{center}
+\begin{center} \includegraphics [scale=0.4] {triangle6.png} \end{center}
 
 Let the smaller right triangle with hypotenuse $a$ include angle $C'$, and the one with hypotenuse $b$ have angle $C''$, where $C = C' + C''$.
 
@@ -123,7 +127,7 @@ Let's see:
 \[ xy = ab \sin C' \sin C'' \]
 
 So
-\[ h^2 - xy = ab(\cos C' \cos C'' - \sin C' \sin C''P) \]
+\[ h^2 - xy = ab(\cos C' \cos C'' - \sin C' \sin C'') \]
 \[ = ab \cos C \]
 
 Substituting into the equation we had above:
@@ -133,7 +137,32 @@ Substituting into the equation we had above:
 
 $\square$
 
-Since the first algebraic proof is simpler, we could view the second as a proof of the formula for sum of cosines, in reverse.
+We can view the second as a proof of the formula for sum of cosines, in reverse.
+
+\subsection*{other triangles}
+
+It is natural when proving theorems about triangles to draw an acute triangle as the example.  Often, a proof must be adjusted for the case of obtuse triangles.  We won't usually show these extensions, but here is a proof of the law of cosines for an obtuse triangle.
+
+\begin{center} \includegraphics [scale=0.4] {law_of_cosines_obtuse.png} \end{center}
+
+\emph{Proof}.
+
+We draw two right triangles by extending the side adjacent to the obtuse angle.  Let $x$ be the length of $AD$ and $h$ be the length of $BD$.  By the Pythagorean theorem:
+
+\[ c^2 = x^2 + h^2 \]
+\[ a^2 = (b + x)^2 + h^2 \]
+
+By subtraction
+\[ a^2 - c^2 = (b+x)^2 - x^2 \]
+\[ = b^2 + 2bx \]
+So
+\[ a^2 = b^2 + c^2 + 2bx \]
+
+It remains to show that $x = -c \cos A$.  
+
+But $x = c \cos \angle BAD$, and for two supplementary angles, the cosine of one is minus the cosine of the other.
+
+$\square$
 
 \subsection*{Law of sines}
 Here's a simple identity called the law of sines.  In contrast to the law of cosines, it is fairly trivial to prove.
@@ -148,5 +177,53 @@ We could do the same construction and argument with either $A$ or $B$, and the t
 \[ \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c} \]
 
 The sine of an angle, divided by the length of the side opposite, is a constant.
+
+\subsection*{algebra}
+
+I came across the following two problems on the web
+
+\url{https://brownmath.com/twt/intro.htm}
+
+To do:  "solve" a triangle (find all three sides) from the following information:
+
+$\circ$ \ \ the area plus two angles
+
+or
+
+$\circ$ \ \ the area plus two sides
+
+\begin{center} \includegraphics [scale=0.4] {triangle5.png} \end{center}
+
+For the first one, if we know two angles, we know the third.  Let the area be $K$.  For any base side the altitude is the adjacent side times the sine of the angle.  So, for example
+
+\[ K = \frac{1}{2} \ b \sin A \cdot c \]
+or 
+\[ K = \frac{1}{2} ab \sin C \]
+
+We must find $b$ in terms of $a$, for example, as $b = a \sin B /\sin A$ so substituting:
+\[ K = \frac{1}{2} a \cdot a \frac{\sin B}{\sin A} \ \sin C \]
+so then 
+\[ a^2 = 2K \frac{\sin A}{\sin B \sin C} \]
+and then we get the other two sides from the law of sines.
+
+For the second problem, area plus two sides, we could perhaps start with Heron's formula and obtain a fourth-order polynomial in $c$.
+
+Perhaps an easier approach is as follows.  Suppose we're given $a$ and $b$ so (as before)
+
+\[ K = \frac{1}{2} ab \sin C \]
+
+From which we obtain $\cos C$
+\[ \cos C = \sqrt{1 - (\frac{2K}{ab})^2 } \]
+
+and then use the law of cosines:
+
+\[ c^2 = a^2 + b^2 - 2ab \cos C \]
+\[ c^2 = a^2 + b^2 - 2ab \sqrt{1 - (\frac{2K}{ab})^2} \]
+
+which can be simplified as
+
+\[ c^2 = a^2 + b^2 -  \sqrt{4a^2b^2 - 16K^2} \]
+
+And that factor of $16K^2$ makes me think this is probably related to the derivation of Heron's law, but let's wait and take a look.
 
 \end{document}

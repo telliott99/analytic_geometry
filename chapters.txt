@@ -8,6 +8,7 @@ Lines and slopes
 Circles again
 Parabola
 Parabola slope
+Tangent from a point
 Ellipse
 Hyperbola
 
@@ -17,6 +18,13 @@ Sum of angles
 Double angle
 Law of cosines
 Heron and Brahmagupta
+
+Archimedes and Pi
+Archimedes and pi
+Value of pi
+Value of pi revisited
+Square root of 3
+Archimedes and quadrature
 
 Two basic operations in calculus
 Simple slopes
@@ -46,9 +54,4 @@ Pappus
 Addendum
 More on sum of angles
 Pythagorean triples
-Archimedes and pi
-Value of pi
-Value of pi revisited
-Square root of 3
-Archimedes and quadrature
 References

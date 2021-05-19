@@ -107,4 +107,65 @@ and then
 \]
 The simple multiplication rule will recover our formulas.
 
+\subsection*{Shankar}
+
+In his wonderful books on Physics, Shankar sets things up a little differently, so let's just take a quick look at his diagram.
+
+\begin{center} \includegraphics [scale=0.6] {Shankar2_4b.png} \end{center}
+
+The angle of rotation of the coordinate system going from $x,y$ to $x',y'$ (counter-clockwise from the x-axis) is $\phi$, labeled with a black dot.  The rotated $y$-axis, called $y'$, makes the same angle with the original $y$-axis, as shown at the left.
+
+The angle between $\mathbf{A}$ and the x-axis is $\phi + \theta$.  Since $A_x'$ is the length of the projection of the vector on the $x'$-axis, the dotted line near the label $A_y'$ is perpendicular to the $x'$ -axis.  (The diagram is not perfectly square).
+
+Therefore, there are two angles each equal to the sum of the red and block dots on both ends of the diagram, by the alternate interior angles theorem.
+
+The angles labeled $\theta$ are equal because they are complementary with red plus black.  Alternatively, use alternate interior angles with the $y$-axis and the dotted line perpendicular to the $x$-axis.
+
+Now
+
+\[ A_x = A \cos \ (\phi + \theta) \]
+\[ = A \ [ \ \cos \phi \cos \theta - \sin \phi \sin \theta \ ] \]
+
+\[ A_x' = A \cos \theta \]
+\[ A_y' = A \sin \theta \]
+
+\begin{center} \includegraphics [scale=0.6] {Shankar2_4b.png} \end{center}
+
+so
+\[ A_x = A_x' \cos \phi - A_y' \sin \phi \]
+
+In a similar way
+\[ A_y = A \ \sin (\phi + \theta) \]
+\[ = A \ [ \ \sin \phi \cos \theta + \cos \phi \sin \theta \ ] \]
+
+so 
+\[ A_y = A_x' \sin \phi + A_y' \cos \phi \]
+
+We rotated the coordinate system counter-clockwise, which would normally give a clockwise-rotation of the vectors, and would result in the minus sign being in the formula for the $y$-component.  
+
+However, the calculation was set up to find $A_x$ in terms of $A_x'$ and $A_y'$.  So the primed components (after the rotation) were really used as the starting point.  
+
+This explains why we have a minus sign in the formula for $A_x$ above (i.e. - $A_y' \sin \theta$), rather than in the formula for $A_y$.
+
+To go the other way, start with the two equations:
+
+\[ A_x = A_x' \cos \phi - A_y' \sin \phi \]
+\[ A_y = A_x' \sin \phi + A_y' \cos \phi \]
+
+Multiply the first by $\cos \phi$ and the second by $\sin \phi$ and add (using $\sin^2 \phi + \cos^2 \phi = 1$):
+\[ A_x \cos \phi + A_y \sin \phi = A_x' \]
+
+Also multiply the first by $\sin \phi$ and the second by $\cos \phi$ and subtract the first from the second
+\[ A_y \cos \phi - A_x \sin \phi = A_y' \]
+
+The minus sign has switched to the second equation.
+
+Finally, we must have that the length of the vector $\mathbf{A}$ is the same in either coordinate system.  The length squared is
+
+\[ A_x^2 = (A_x')^2 \cos^2 \phi + (A_y')^2 \sin^2 \phi - 2 A_x' A_y' \cos \phi \sin \phi \]
+\[ A_y^2 = (A_x')^2 \sin^2 \phi + (A_y')^2 \cos^2 \phi + 2 A_x' A_y' \cos \phi \sin \phi \]
+
+Add them together and use our favorite identity to obtain:
+\[ A_x^2 + A_y^2 = (A_x')^2 +  (A_y')^2 \]
+
 \end{document}

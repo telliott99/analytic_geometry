@@ -9,7 +9,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 
-\graphicspath{{/Users/telliott/Github/figures/}}
+\graphicspath{{/Users/telliott/Dropbox/Github-math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
 \title{Parabola geometry}
@@ -242,6 +242,47 @@ We draw the tangent to the ellipse.  By definition, the tangent has only a singl
 Therefore, the path shown is the shortest path from $F'$ to the tangent and then to $F$.  But we know that for the shortest path the angles colored red are equal.
 
 \url{http://math.stackexchange.com/questions/1063977/how-to-geometrically-prove-the-focal-property-of-ellipse}
+
+Here is a slightly more elaborate argument from the same StackExchange question.  It is a proof by contradiction.
+
+Consider the curve of ellipse $E$.
+
+To simplify the notation we will label the foci $F$ ($F_1$ in the original drawing) and $G$ ($F_2$).  Consider an arbitrary point $P$ on $E$.
+
+We will prove that $FP$ and $PG$ make equal angles with the tangent to $E$ at $P$.
+
+\begin{center} \includegraphics [scale=0.35] {ellipse_reflection4.png} \end{center}
+
+\emph{Proof}.
+
+Extend $FP$ to $FG'$ (chosen so that $PG = PG')$.
+
+Draw the perpendicular bisector $L$ of $GG'$.  Since $\triangle PGG'$ is isosceles, $\theta_1 = \theta_2$, the perpendicular bisector of the base also bisects the angle at $P$.  By vertical angles, $\theta_3 = \theta_1$, so $\theta_3 = \theta_2$.
+
+We claim that $L$ is the tangent line to $E$ at $P$.
+
+Suppose $L$ is not the tangent.
+
+Then, $L$ also meets $E$ at another point $Q$.  
+
+As a point on $L$, $Q$ is also equidistant from $G$ and $G'$ with $QG = QG'$.
+
+By the definition of the ellipse $FQ + QG = FP + PG$.
+
+So then
+
+\[ FQ + QG' = FQ + QG = FP + PG = FP + PG' = FG' \]
+
+Consider just the first and last terms:
+
+\[ FQ + QG' = FG' \]
+
+This violates the triangle inequality for $\triangle FQG'$
+and is a contradiction.
+
+\begin{center} \includegraphics [scale=0.35] {ellipse_reflection4.png} \end{center}
+
+Therefore L is the tangent line to $E$ at $P$ and $\theta_3 = \theta_2$.
 
 
 \end{document}

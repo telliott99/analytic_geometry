@@ -245,13 +245,15 @@ The point on the circle is $(x_0,y_0)$.
 
 Our first solution uses slopes and points.  The line from $(-a,0)$ to $(x_0,y_0)$ has slope
 \[ m_1 = \frac{y_0}{x_0 + a} \]
-The line from $(a,0)$ to $(x_0,y_0)$ has slope
-\[  m_2 = \frac{y_0}{a - x_0} \]
-Two lines meet at a right angle if the product of their slopes is equal to $-1$.
-\[ m_1 m_2 = \frac{y_0}{x_0 + a} \ \frac{y_0}{a - x_0} \]
-\[ = \frac{y_0^2}{a^2 - x_0^2} = \frac{y_0^2}{x_0^2 + y_0^2 - x_0^2} = - 1 \]
 
-This was not pretty, it's just good exercise.  
+The line from $(x_0,y_0)$ to $(a,0)$ has slope
+\[  m_2 = \frac{y_0}{x_0 - a} \]
+
+Two lines meet at a right angle if the product of their slopes is equal to $-1$.
+
+\[ m_1 m_2 = \frac{y_0}{x_0 + a} \cdot \frac{y_0}{x_0 - a} \]
+
+\[ = \frac{y_0^2}{x_0^2 - a^2} = \frac{y_0^2}{x_0^2 - y_0^2 - x_0^2} = - 1 \]
 
 And here is a proof using vectors and the dot product.  Consider the semicircle centered on the origin with radius $a$, so the ends of the diameter are at $(x = \pm \ a, 0)$.  
 
