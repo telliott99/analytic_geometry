@@ -129,46 +129,6 @@ Subtract 2 from both sides, divide by $2$, and change all the signs leaving
 \[ \cos (s - t) = \cos s \cos t + \sin s \sin t \]
 This is our formula for the cosine of the difference of two angles.
 
-\subsection*{getting to sine}
-
-Strang's derivation gives us the formula for sum and difference of cosines.  To get the formula for the sine in the same way, we would need to mix sine and cosine when computing a distance in his diagram.  I don't know how to do that.  So our problem is how to go from the cosine formula to the sine formula.
-
-Let's look at the relationships between sine and cosine for angles that are related by addition or subtraction of $\pi/2$.
-\begin{center} \includegraphics [scale=0.4] {angles2.png} \end{center}
-
-In the figure, I have simply rotated the same triangle.
-
-What we see is that 
-\[ \sin \theta + \frac{\pi}{2} = b = \cos \theta \]
-\[ \cos \theta + \frac{\pi}{2} = -a = - \sin \theta \]
-and
-\[ \sin \theta - \frac{\pi}{2} = -b = - \cos \theta \]
-\[ \cos \theta - \frac{\pi}{2} = a = \sin \theta \]
-
-Here is an alternative connection which proceeds from the graph of sine and cosine versus the angle.
-
-\begin{center} \includegraphics [scale=0.4] {sine_cosine_wikipedia.png} \end{center}
-
-so it's easy to see that $\cos t = \sin t + \pi/2$.
-
-So then, consider
-
-\[ \cos s + t = \cos s \cos t - \sin s \sin t \]
-
-Suppose we modify the left-hand side to be
-\[ \cos s + t - \frac{\pi}{2} \]
-that gives 
-\[ \cos (s + t - \frac{\pi}{2}) = \cos s \cos (t - \frac{\pi}{2}) - \sin s \sin (t - \frac{\pi}{2}) \]
-
-If you go back to our table above and substitute for $\cos (t - \frac{\pi}{2}) = \sin t$
-\[ \cos (s + t - \frac{\pi}{2}) = \cos s \sin t - \sin s \sin (t - \frac{\pi}{2}) \]
-then for $\sin (t - \frac{\pi}{2}) = - \cos t$
-\[ \cos (s + t - \frac{\pi}{2}) = \cos s \sin t + \sin s \cos t \]
-and then finally for $\cos (s + t - \frac{\pi}{2}) = \sin s + t$ 
-\[ \sin s + t = \cos s \sin t + \sin s \cos t \]
-
-Most people find this difficult to do without making a mistake.
-
 \subsection*{sine of the sum}
 
 Here is a very nice geometrical derivation for the sine of the sum.  If you like Strang's derivation for the cosine (as I do), this would be a good complement.
@@ -185,6 +145,49 @@ These two expressions add to give the total area.  We can factor out the common 
 \[ A = \sin (\theta + \phi) = \sin \phi \cos \theta + \sin \theta \cos \phi \]
 
 \url{https://www.cut-the-knot.org/triangle/SinCosFormula.shtml}
+
+\subsection*{going from one formula to the other}
+
+Strang's derivation gives us the formula for sum and difference of cosines.  To get the formula for the sine in the same way, we would need to mix sine and cosine when computing a distance in his diagram.  I don't know how to do that.  So our problem is how to go from the cosine formula to the sine formula.
+
+On the other hand we already have an easy derivation of the sine formula.
+
+Let's look at the relationships between sine and cosine for angles that are related by addition or subtraction of $\pi/2$.
+\begin{center} \includegraphics [scale=0.4] {angles2.png} \end{center}
+
+In the figure, I have simply rotated the same triangle.
+
+What we see is that 
+\[ \sin \theta + \frac{\pi}{2} = b = \cos \theta \]
+\[ \cos \theta + \frac{\pi}{2} = -a = - \sin \theta \]
+
+We can also get
+\[ \sin \theta - \frac{\pi}{2} = -b = - \cos \theta \]
+\[ \cos \theta - \frac{\pi}{2} = a = \sin \theta \]
+
+Here is an alternative connection which proceeds from the graph of sine and cosine versus the angle.
+
+\begin{center} \includegraphics [scale=0.4] {sine_cosine_wikipedia.png} \end{center}
+
+so it's easy to see that $\cos t = \sin t + \pi/2$.
+
+So then, consider
+
+\[ \sin s + t = \sin s \cos t + \sin t \cos s \]
+
+Suppose we modify the left-hand side to be
+\[ \sin s + t + \frac{\pi}{2} \]
+Grouped one way, that gives 
+\[ \sin s + (t + \frac{\pi}{2}) = \sin s \cos (t + \frac{\pi}{2}) + \cos s \sin (t + \frac{\pi}{2}) \]
+
+Going back to the table above and substituting we get:
+\[ \sin s + (t + \frac{\pi}{2}) = \sin s (- \sin t) + \cos s \cos t \]
+
+On the other hand
+\[ \sin s + (t + \frac{\pi}{2}) = \sin (s + t) + \frac{\pi}{2} = \cos s + t \]
+Combining the two expressions, we obtain the desired result.
+
+Going backward works just as well.
 
 \subsection*{Euler}
 Euler's formula is:
@@ -206,6 +209,54 @@ By Euler's formula, these two expressions are equal.
 The rule for equality of complex numbers is that both the real parts and the imaginary parts must be equal.  So we have
 \[ \cos (s + t) = \cos s \cos t - \sin s \sin t \]
 \[ \sin (s + t) = \sin s \cos t + \cos s \sin t \]
+
+\subsection*{multiplication by addition}
+
+Ian Stewart (\emph{Visions of Infinity}) gives the following formula and says that it was used for a time to do multiplication by addition of sines, just before logarithms were invented (or discovered, depending on your point of view).
+
+\[ \sin \frac{x + y}{2} \cdot \cos \frac{x - y}{2} = \frac{\sin x + \sin y}{2} \]
+
+The idea is that if we want to multiply two numbers $u$ and $v$, both in the interval $[0,1]$, then we must first look up the angles $s$ and $t$ (in a table of trigonometric values) such that $u = \sin s$ and $v = \cos t$.  Then we find $x$ and $y$, but this is easy since:
+
+\[ s = \frac{x + y}{2} \]
+\[ t = \frac{x - y}{2} \]
+so
+\[ 2s = x + y \]
+\[ 2t = x - y \]
+Thus, $x = s + t$ and $y = s - t$.  With $x$ and $y$ in hand, look up $\sin x$ and $\sin y$ and average them, and we're done.
+
+So let us verify the original formula.
+\[ \sin \frac{x + y}{2} \cdot \cos \frac{x - y}{2} = \frac{\sin x + \sin y}{2} \]
+I prefer to let $x = x/2$ and $y = y/2$ so we have that
+\[ \sin (x + y) \cdot \cos(x - y) = \frac{\sin 2x + \sin 2y}{2} \]
+Working with the left-hand side:
+\[ (\sin x \cos y + \sin y \cos x)(\cos x \cos y + \sin x \sin y) = \]
+\[ = \cos^2 y \sin x \cos x + \sin^2 x \sin y \cos y + \cos^2 x \sin y \cos y + \sin^2 y \sin x \cos x \]
+\[ = \sin x \cos x + \sin y \cos y \]
+
+Reassembling the equation:
+\[ 2 \sin x \cos x + 2 \sin y \cos y = \sin 2x + \sin 2y \]
+Which matches the sum of angles formula if we let $x = s = t$ and (separately) $y = s = t$.
+
+$\square$
+
+Let's try an example.  Suppose we want
+
+\begin{verbatim}
+u = 0.73859
+v = 0.35621
+s = asin(u) = 0.830976
+t = acos(v) = 1.206588
+\end{verbatim}
+
+so then
+\begin{verbatim}
+x = s - t = -0.375611
+y = s + t =  2.037564
+uv = (sin x + sin y)/2 = 0.263093
+\end{verbatim}
+
+Check:  $u \cdot v = 0.263093$
 
 \subsection*{"a tricky problem"}
 

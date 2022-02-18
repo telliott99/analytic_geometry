@@ -112,9 +112,34 @@ We can guess solutions by trying to factor into a form like:
 
 The case of a single root occurs when $s = t$ so we have $a(x - s)^2 = 0$.  A common example of that is a parabola with its vertex at the origin, so $s = 0$ and $y = ax^2$ (right panel, above).
 
-Roots do not have to be integers (or even rational).  An arguably more productive and certainly more general approach to finding them is the process of \emph{completing the square}.  
+Roots do not have to be integers (or even rational).  An arguably more productive and certainly more general approach to finding them is the process of \emph{completing the square}.
 
 \subsection*{completing the square}
+Suppose we have
+\[ x^2 + 4x + 2 = 0 \]
+Here, it is clear that there will not be integer roots.  No two integers add to get $4$ and multiply to give $2$.
+
+The idea is to think about how we could convert $x^2 + 4x$ into a perfect square.
+\[ (x + 2)^2 = x^2 + 4x + 4 \]
+Since we already have $2$ we do this:
+\[ x^2 + 4x + 2 = 0 \]
+\[ x^2 + 4x + 4 = 2 \]
+\[ (x + 2)^2 = 2 \]
+\[ (x + 2) = \pm \sqrt{2} \]
+\[ x = -2 \pm \sqrt{2} \]
+
+Check:
+\[ x^2 + 4x + 4 = 0 \]
+\[ (-2 \pm \sqrt{2})^2 + 4 (-2 \pm \sqrt{2}) + 2 = 0 \]
+Positive square root:
+\[ 4 - 4 \sqrt{2} + 2 - 8 + 4 \sqrt{2} + 2 = 0 \]
+Negative square root:
+\[ 4 + 4 \sqrt{2} + 2 - 8 - 4 \sqrt{2} + 2 = 0 \]
+They both check.
+
+\subsection*{quadratic equation}
+There is a general form for what we just did.
+
 Suppose we have
 \[ y = ax^2 + bx + c \]
 When $y = 0$:
@@ -123,38 +148,41 @@ When $y = 0$:
 First, multiply through by $1/a$ and place the constant term on the right-hand side:
 \[ x^2 + \frac{b}{a} x = - \frac{c}{a} \]
 
-We want to write the left-hand side
+We want to change the left-hand side
+\[ x^2 + \frac{b}{a} x \]
+into a perfect square, like
+\[ (x + \frac{b}{2a})^2 \]
+
+This is the first bright idea.  We chose $b/2a$ for the last equation, because there will be two copies when computing the square
+\[ (x + \frac{b}{2a})^2 = x^2 + 2 \cdot  \frac{b}{2a} x +  \frac{b^4}{4a^2} \]
+\[ = x^2 + \frac{b}{a} x +  \frac{b^4}{4a^2} \]
+
+The second insight is that on the original left-hand side
 \[ x^2 + \frac{b}{a} x \]
 
-as a perfect square.  Something like
-\[ (x + p)^2 = x^2 + 2xp + p^2 \]
-What should $p$ be?
-
-If we compare the cofactor of the $x$ term, in our problem we have $b/a$ and in the example we have $2p$.  So $2p = b/a,  \ p = b/2a$ and then $(x + p)$ is like $(x + b/2a)$ so finally $(x + p)^2$ is like
-\[ (x + \frac{b}{2a})^2 = x^2 + \frac{b}{a}x + (\frac{b}{2a})^2 \]
-
-The key insight is that on the original left-hand side (three equations back)
-\[ x^2 + \frac{b}{a} x \]
-
-the third term is missing, but \emph{we can fix it}.  To maintain equality, simply add the same thing on both sides:
+that third term is missing, but \emph{we can fix it}.  To maintain equality, simply add the same thing on both sides:
 \[ x^2 + \frac{b}{a} x + (\frac{b}{2a})^2  = -\frac{c}{a} + (\frac{b}{2a})^2 \]
 
-So now the left-hand side is a perfect square:
-\[ (x + \frac{b}{2a})^2 = -\frac{c}{a} + (\frac{b}{2a})^2 \]
-\[ x + \frac{b}{2a} = \pm \sqrt{-\frac{c}{a} + (\frac{b}{2a})^2} \]
+So the left-hand side is now a perfect square.  Also, we put the right-hand side over a common denominator
+\[ (x + \frac{b}{2a})^2 = -\frac{4ac}{4a^2} + \frac{b^2}{4a^2} \]
 
-Now, we just do a bit of rearranging.
+Taking the square root
+\[ x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a} \]
 
-Multiplying top and bottom of the first term under the square root gives a common factor of $4a^2$:
-\[ x + \frac{b}{2a} = \pm \sqrt{-\frac{4ac}{4a^2} + (\frac{b}{2a})^2} \]
+Now, we just do a bit of rearranging.  
 
-which can come out of the square root and then matches what's in the second term on the left-hand side:
-\[ x + \frac{b}{2a} = \pm \frac{\sqrt{-4ac + b^2}}{2a} \]
-which we rearrange slightly to give the standard \emph{quadratic formula}:
-\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
-
-This formula always works to find the roots of an equation, if they exist.  The quantity under the square root is called the discriminant
+I like to think of this equation in two pieces.  The first part is the discriminant:  
 \[ D = b^2 - 4ac \]
+
+So we can rewrite the equation as
+\[ x = \frac{-b \pm \sqrt{D}}{2a}  \]
+
+which is the quadratic equation.  Written out in full it is
+\[ x =  \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}  \]
+
+This formula always works to find the roots of an equation, if they exist.  
+
+The quantity under the square root is called the discriminant.
 If $D < 0$ then $\sqrt{D}$ does not exist in the real numbers and there is no $x$ such that $y = 0$.  That corresponds to the case where the parabola does not cross the $x$-axis.
 
 If $D = 0$ then there is a single root, and the graph just touches the $x$-axis.
@@ -164,36 +192,100 @@ If $D = 0$ then there is a single root, and the graph just touches the $x$-axis.
 We assert that when $x$ takes on those two values, it is a solution for
 \[ ax^2 + bx = -c \]
 Take the positive root:
-\[ x = \frac{1}{2a} \ [ -b + \sqrt{b^2 - 4ac} \ ] \]
+\[ x = \frac{1}{2a} \ [ -b + \sqrt{D} \ ] \]
 Compute $ax^2$
-\[ ax^2 = \frac{1}{4a} \ [ b^2 - 2 b \sqrt{b^2 - 4ac} + b^2 - 4ac \ ] \]
-\[ = \frac{1}{4a} \ [ 2b^2 - 2b \sqrt{b^2 - 4ac} - 4ac \ ] \]
+\[ ax^2 = \frac{1}{4a} \ [ b^2 - 2 b \sqrt{D} + D \ ] \]
+\[ = \frac{1}{4a} \ [ 2b^2 - 2b \sqrt{D} - 4ac \ ] \]
+\[ =  \frac{1}{2a} \ [ b^2 - b \sqrt{D} - 2ac \ ] \]
 
-and then for $bx$
-\[ bx = \frac{1}{2a} \ [ -b^2 + b \sqrt{b^2 - 4ac} \ ] \]
-multiply by $2$ on top and bottom on the right-hand side:
-\[ bx = \frac{1}{4a} \ [ -2b^2 + 2b \sqrt{b^2 - 4ac} \ ] \]
+and then $bx$
+\[ bx = \frac{1}{2a} \ [ -b^2 + b \sqrt{D} \ ] \]
 
-All the terms of $bx$ cancel terms in $ax^2$.  What's left is $- 4ac$ so then
-\[ \frac{1}{4a} \ (- 4ac) = -c \]
+All the terms of $bx$ cancel terms in $ax^2$ when we add $ax^2 + bx$.  What's left is $- 2ac$ in the numerator so then
+\[ \frac{1}{2a} \ (- 2ac) = -c \]
 
 If we had started with the negative root, the square roots in both $ax^2$ and $bx$ would each change sign, but they would still be opposite signs and hence, cancel.
 
-Although the form given above is the standard one
-\[ ax^2 + bx + c = 0 \]
+\subsection*{simpler method}
+The quadratic equation
+\[ x =  \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}  \]
+is not particularly complicated, and even less so if we first divide by $a$.  (This changes the shape of the parabola but doesn't change the roots).
 
-there is another.  Since we're after roots, divide by $a$ so we can get rid of one cofactor
-\[ x^2 + px + q = 0 \]
+Nevertheless, students have trouble with it.  There is an easier way.  The germ of the idea is contained in what we just said.
 
-Now the formula gives
-\[ x = - \frac{p}{2} \pm \ \sqrt{\frac{p^2}{4} - q} \]
+We recognize that any quadratic can be rewritten as
+\[ (x - s)(x - t) = 0 \]
+where $s$ and $t$ are the roots we seek when solving
+\[ x^2 - (s + t) x + st = 0 \]
 
-\emph{Proof}.
+Compared with the standard form (with $a$ divided into $b$ and $c$) we have that
+\[ b = - (s + t) \]
+\[ st = c \]
 
-\[ (x + \frac{p}{2})^2 = x^2 + pz + \frac{p^2}{4} \]
-\[ = \frac{p^2}{4} - q \]
+And of course, these two relationships are what students exploit when guessing the numbers $s$ and $t$.  The problem with that approach is that it so rarely yields integer values, especially in real situations.
 
-Take the roots and subtract $p/2$.
+However, there is other structure in the problem.  Any parabola has mirror image symmetry about an axis that goes through the vertex.  As a result, the values $x = s$ and $x = t$, which lie on a horizontal, are equally distant from the value $x$ takes on at the vertex.  
+
+Let us call that middle value $m$ for median.  Equidistant means that
+\[ m = \frac{s + t}{2} \]
+
+$m$ is closely related to $b$:
+\[ 2m = - b \]
+\[ m = - \frac{b}{2} \]
+
+The second bright idea here is that, because of the same symmetry, $s$ and $t$ are equidistant from $m$.  Let us call that distance $d$, so then
+\[ m - d = s, \ \ \ \ \ \ m + d = t \]
+\[ st = m^2 - d^2 \]
+and $st = c$ which gives
+\[ d^2 = m^2 - c \]
+
+Using this method it is a four-step process, but each step is simple:
+
+$\circ$ \ Divide by $a$, giving $x^2$, then redefine $b/a$ as $b$ and $c/a$ as $c$.
+
+$\circ$ \ Compute $m = - b/2$.
+
+$\circ$ \ Compute $d = \sqrt{m^2 - c}$.
+
+$\circ$ \ Compute s,t as $m \pm d$.
+
+The roots are symmetric because of the $\pm$ symbol.  They are called \emph{conjugates}, and they have the property that added, the square roots cancel, and when multiplied together, what's under the square root comes into the product.
+
+So even if $D$, or $m^2 - c = d^2$ is negative and its square root does not exist in the real numbers, nevertheless:
+
+\[ (x - s)(x - t) = (x - (m - d)) \cdot (x - (m + d)) \]
+\[ = ((x - m) + d) \cdot ((x - m) - d) \]
+\[ = (x-m)^2 - d^2 \]
+which we may recognize from the steps of the algorithm.
+
+In this final form, we have only $d^2$.
+
+\subsection*{example}
+
+Suppose we take an ordinary quadratic like $x^2 + x - 2$ which has real roots, and make them not real by adding $3$:
+\[ x^2 + x + 1 \]
+\begin{center} \includegraphics [scale=0.5] {example1.png} \end{center}
+It should be apparent that the first equation can be factored
+\[ x^2 + x - 2 = (x + 2)(x - 1) \]
+which explains the roots at $x = -2, x = 1$.
+
+Working with the other equation, $x^2 + x + 1$, we compute
+\[ m = -\frac{b}{2} = - \frac{1}{2} \]
+and
+\[ (m + d)(m - d) = m^2 - d^2 = c \]
+\[ d^2 = m^2 - c = \frac{1}{4} - 1 = - \frac{3}{4} \]
+\[ d = \frac{\sqrt{-3}}{2} \]
+
+The roots are 
+\[ x = - \frac{1}{2} \pm \frac{\sqrt{-3}}{2} \]
+So we can rewrite the equation as
+\[ (x + \frac{1}{2} - \frac{\sqrt{-3}}{2})(x + \frac{1}{2} + \frac{\sqrt{-3}}{2}) \]
+which becomes a difference of squares:
+\[ = (x + \frac{1}{2})^2 - (\frac{\sqrt{-3}}{2})^2 \]
+\[ = x^2 + x + \frac{1}{4} + \frac{3}{4} \]
+\[ = x^2 + x + 1 \]
+
+The roots go away as we said, and in this one, even the fractions disappear.
 
 \subsection*{tangent lines}
 
