@@ -9,7 +9,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 
-\graphicspath{{/Users/telliott/Dropbox/Github-Math/figures/}}
+\graphicspath{{/Users/telliott/Github-Math/figures/}}
 % \begin{center} \includegraphics [scale=0.4] {gauss3.png} \end{center}
 
 \title{Parabola}
@@ -338,21 +338,23 @@ Therefore, the equation of the tangent line is $y = 2x - 1$, which matches what 
 $y = 2x + y_0$ is a \emph{family} of lines.  For $y_0 = -1$, there is a single solution for $x$ to be both on the line and the parabola.  For $y_0 < -1$, there are no solutions, while for $y_0 > -1$ there are two solutions, because the line actually traces out a chord or secant of the parabola, passing through the curve at two points.
 
 The general solution is as follows:
-\[ y = ax^2 \]
+\[ y = ax^2 + bx + c \]
 \[ y = mx + y_0 \]
 The point(s) of intersection are given by $(x,y)$ satisfying both equations:
-\[ ax^2 = y = mx + y_0 \]
+\[ ax^2 + bx + c = y = mx + y_0 \]
 
 Then
-\[ ax^2 - mx - y_0 = 0 \]
-From the quadratic equation
-\[ x = \frac{m \pm \ \sqrt{m^2 + 4ay_0}}{2a} \]
+\[ ax^2 + (b-m) x + c - y_0 = 0 \]
+
+From the quadratic equation the solutions are
+\[ x = \frac{(m-b) \pm \ \sqrt{(b-m)^2 + 4a(c-y_0)}}{2a} \]
 
 For the case of the tangent line, there is a single solution, which happens when the discriminant is zero and then
-\[ x = \frac{m}{2a} \]
-\[ m = 2ax \]
 
-As we've been saying.  The slope of the tangent to the parabola at a point $(x, ax^2)$ is equal to $2ax$.
+\[ x = \frac{m-b}{2a} \]
+\[ m = 2ax + b \]
+
+As we've been saying.  The slope of the tangent to the parabola at a point $(x, ax^2)$ is equal to $2ax$, but there is another term $b$ when the equation of the parabola is $ax^2 + bx + c$.
 
 We can find the equation of the line by finding $y_0$, the value of $y$ when $x = 0$.
 \[ m = 2ax = \frac{y - y_0}{x - 0} \]
@@ -392,7 +394,7 @@ $\square$
 
 \subsection*{further comment}
 
-Next, pick any two points $(x,y)$ and $(x',y')$ on our standard parabola.
+Pick any two points $(x,y)$ and $(x',y')$ on our standard parabola.
 
 The slope of the line that connects those two points is equal to the slope of the parabola at the point whose $x$-value is halfway in between.  
 \begin{center} \includegraphics [scale=0.4] {para19.png} \end{center}
@@ -410,5 +412,13 @@ and the slope is
 \[ = a(x' + x) \]
 
 A similar result is that if we pick any two points $(x,y)$ and $(x',y')$, and draw their slopes, the point where the two slope lines meet has its $x$-value exactly halfway in between $x$ and $x'$.
+
+\subsection*{perpendicular bisector}
+Roberval's idea was that the tangent should split the difference between the lines to the focus and to the directrix.  
+
+Another way to phrase that is to say that the tangent to $(x,ax^2)$ is the perpendicular bisector of a line connecting the focus and the point on the directrix with the same $x$.
+\begin{center} \includegraphics [scale=0.2] {para14.png} \end{center}
+But the perpendicular bisector crosses the $x$-axis at $x/2$.  So then the slope is just
+\[ \frac{ax^2}{x/2} = 2ax \]
 
 \end{document}
